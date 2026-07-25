@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "010-non-overlapping-text-edits",
+  "title": "Apply unordered text edits against original offsets",
+  "task_sha256": "32ab1d1da9801b783a8e2195ffa6eedc80938bd35a7d1268ee603eb82e447d73",
+  "starter": {
+    "expected": "fail",
+    "observed": "fail",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "passed": false
+      }
+    ]
+  },
+  "reference": {
+    "expected": "pass",
+    "observed": "pass",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "benchmark_valid": true,
+    "starter_matches": true,
+    "reference_matches": true
+  }
+}

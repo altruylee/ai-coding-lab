@@ -1,0 +1,33 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/004-layered-config-merge/**",
+    "benchmarks/tasks/005-bounded-retry-schedule/**",
+    "benchmarks/tasks/006-safe-archive-members/**",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/**",
+    "benchmarks/tasks/008-idempotent-event-deduplication/**",
+    "benchmarks/tasks/009-context-window-selection/**",
+    "benchmarks/tasks/010-non-overlapping-text-edits/**",
+    "docs/ROADMAP.md",
+    "experiments/009-ten-task-suite/**",
+    "tests/test_task_004_to_010.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmarks/tasks/004-layered-config-merge/**",
+    "benchmarks/tasks/005-bounded-retry-schedule/**",
+    "benchmarks/tasks/006-safe-archive-members/**",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/**",
+    "benchmarks/tasks/008-idempotent-event-deduplication/**",
+    "benchmarks/tasks/009-context-window-selection/**",
+    "benchmarks/tasks/010-non-overlapping-text-edits/**",
+    "experiments/009-ten-task-suite/**",
+    "tests/test_task_004_to_010.py"
+  ]
+}

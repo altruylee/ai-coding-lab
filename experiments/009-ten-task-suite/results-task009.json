@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "009-context-window-selection",
+  "title": "Select mandatory and recent messages within a token budget",
+  "task_sha256": "666482b45f31e15d78316fa542a20740426827bf827546ed96e3724291cd32f1",
+  "starter": {
+    "expected": "fail",
+    "observed": "fail",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "passed": false
+      }
+    ]
+  },
+  "reference": {
+    "expected": "pass",
+    "observed": "pass",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "benchmark_valid": true,
+    "starter_matches": true,
+    "reference_matches": true
+  }
+}

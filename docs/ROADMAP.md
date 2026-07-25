@@ -24,7 +24,7 @@ framework.
 - [x] Define a compact coding-agent task format
 - [x] Publish the first synthetic scope-boundary experiment
 - [x] Validate a failing starter and passing reference task
-- [ ] Publish ten synthetic repository tasks (3/10)
+- [x] Publish ten synthetic repository tasks (10/10)
 - [x] Provide deterministic validation scripts
 - [x] Define success, cost, latency, and human-intervention fields
 - [x] Publish the first blinded agent attempt with recorded metrics

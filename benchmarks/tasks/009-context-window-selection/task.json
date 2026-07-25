@@ -1,0 +1,28 @@
+{
+  "id": "009-context-window-selection",
+  "title": "Select mandatory and recent messages within a token budget",
+  "starter_dir": "starter",
+  "reference_dir": "reference",
+  "candidate_paths": [
+    "context_window.py"
+  ],
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "expected": {
+    "starter": "fail",
+    "reference": "pass"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "006-safe-archive-members",
+  "title": "Normalize untrusted archive member paths safely",
+  "starter_dir": "starter",
+  "reference_dir": "reference",
+  "candidate_paths": [
+    "archive_paths.py"
+  ],
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "expected": {
+    "starter": "fail",
+    "reference": "pass"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "task_id": "experiment-009-ten-task-suite",
+  "policy_path": "experiments/009-ten-task-suite/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/004-layered-config-merge/TASK.md",
+    "benchmarks/tasks/004-layered-config-merge/reference/config_merge.py",
+    "benchmarks/tasks/004-layered-config-merge/starter/config_merge.py",
+    "benchmarks/tasks/004-layered-config-merge/starter/tests/test_config_merge.py",
+    "benchmarks/tasks/004-layered-config-merge/task.json",
+    "benchmarks/tasks/005-bounded-retry-schedule/TASK.md",
+    "benchmarks/tasks/005-bounded-retry-schedule/reference/retry_schedule.py",
+    "benchmarks/tasks/005-bounded-retry-schedule/starter/retry_schedule.py",
+    "benchmarks/tasks/005-bounded-retry-schedule/starter/tests/test_retry_schedule.py",
+    "benchmarks/tasks/005-bounded-retry-schedule/task.json",
+    "benchmarks/tasks/006-safe-archive-members/TASK.md",
+    "benchmarks/tasks/006-safe-archive-members/reference/archive_paths.py",
+    "benchmarks/tasks/006-safe-archive-members/starter/archive_paths.py",
+    "benchmarks/tasks/006-safe-archive-members/starter/tests/test_archive_paths.py",
+    "benchmarks/tasks/006-safe-archive-members/task.json",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/TASK.md",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/reference/placeholders.py",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/starter/placeholders.py",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/starter/tests/test_placeholders.py",
+    "benchmarks/tasks/007-recursive-placeholder-resolution/task.json",
+    "benchmarks/tasks/008-idempotent-event-deduplication/TASK.md",
+    "benchmarks/tasks/008-idempotent-event-deduplication/reference/events.py",
+    "benchmarks/tasks/008-idempotent-event-deduplication/starter/events.py",
+    "benchmarks/tasks/008-idempotent-event-deduplication/starter/tests/test_events.py",
+    "benchmarks/tasks/008-idempotent-event-deduplication/task.json",
+    "benchmarks/tasks/009-context-window-selection/TASK.md",
+    "benchmarks/tasks/009-context-window-selection/reference/context_window.py",
+    "benchmarks/tasks/009-context-window-selection/starter/context_window.py",
+    "benchmarks/tasks/009-context-window-selection/starter/tests/test_context_window.py",
+    "benchmarks/tasks/009-context-window-selection/task.json",
+    "benchmarks/tasks/010-non-overlapping-text-edits/TASK.md",
+    "benchmarks/tasks/010-non-overlapping-text-edits/reference/text_edits.py",
+    "benchmarks/tasks/010-non-overlapping-text-edits/starter/text_edits.py",
+    "benchmarks/tasks/010-non-overlapping-text-edits/starter/tests/test_text_edits.py",
+    "benchmarks/tasks/010-non-overlapping-text-edits/task.json",
+    "docs/ROADMAP.md",
+    "experiments/009-ten-task-suite/README.md",
+    "experiments/009-ten-task-suite/evidence.json",
+    "experiments/009-ten-task-suite/manifest.json",
+    "experiments/009-ten-task-suite/policy.json",
+    "experiments/009-ten-task-suite/results-task004.json",
+    "experiments/009-ten-task-suite/results-task005.json",
+    "experiments/009-ten-task-suite/results-task006.json",
+    "experiments/009-ten-task-suite/results-task007.json",
+    "experiments/009-ten-task-suite/results-task008.json",
+    "experiments/009-ten-task-suite/results-task009.json",
+    "experiments/009-ten-task-suite/results-task010.json",
+    "tests/test_task_004_to_010.py"
+  ],
+  "checks": [
+    {
+      "name": "task-004-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/004-layered-config-merge",
+        "--output",
+        "experiments/009-ten-task-suite/results-task004.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-005-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/005-bounded-retry-schedule",
+        "--output",
+        "experiments/009-ten-task-suite/results-task005.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-006-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/006-safe-archive-members",
+        "--output",
+        "experiments/009-ten-task-suite/results-task006.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-007-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/007-recursive-placeholder-resolution",
+        "--output",
+        "experiments/009-ten-task-suite/results-task007.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-008-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/008-idempotent-event-deduplication",
+        "--output",
+        "experiments/009-ten-task-suite/results-task008.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-009-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/009-context-window-selection",
+        "--output",
+        "experiments/009-ten-task-suite/results-task009.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-010-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/010-non-overlapping-text-edits",
+        "--output",
+        "experiments/009-ten-task-suite/results-task010.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-003-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/003-deterministic-dependency-order",
+        "--output",
+        "experiments/008-deterministic-dependency-task/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

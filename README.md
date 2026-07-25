@@ -134,6 +134,9 @@ compares two prompt configurations with two blinded attempts each.
 [Experiment 008 — Deterministic dependency-order task](experiments/008-deterministic-dependency-task/README.md)
 adds a graph-planning challenge with stable ordering and deterministic errors.
 
+[Experiment 009 — Complete ten-task suite](experiments/009-ten-task-suite/README.md)
+expands the benchmark to ten diverse, independently reproducible tasks.
+
 ## Repository map
 
 ```text

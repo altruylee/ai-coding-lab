@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "008-idempotent-event-deduplication",
+  "title": "Deduplicate retried events and detect payload conflicts",
+  "task_sha256": "4f9506ce20fc32d41faf1a42440993f46641e95b62e507e86b9179aa7cda2bc6",
+  "starter": {
+    "expected": "fail",
+    "observed": "fail",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "passed": false
+      }
+    ]
+  },
+  "reference": {
+    "expected": "pass",
+    "observed": "pass",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "benchmark_valid": true,
+    "starter_matches": true,
+    "reference_matches": true
+  }
+}

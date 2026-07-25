@@ -24,6 +24,15 @@ task, just as you would review a script or CI workflow.
   mutating the input.
 - `003-deterministic-dependency-order` — produce a stable dependency order and
   reject invalid graphs.
+- `004-layered-config-merge` — merge nested configuration without mutation.
+- `005-bounded-retry-schedule` — calculate validated exponential backoff.
+- `006-safe-archive-members` — reject unsafe archive extraction paths.
+- `007-recursive-placeholder-resolution` — resolve and escape nested
+  placeholders.
+- `008-idempotent-event-deduplication` — collapse retries and detect conflicts.
+- `009-context-window-selection` — retain mandatory and recent messages within
+  a token budget.
+- `010-non-overlapping-text-edits` — apply edits using original source offsets.
 
 ## Run a task
 

@@ -1,0 +1,28 @@
+{
+  "id": "010-non-overlapping-text-edits",
+  "title": "Apply unordered text edits against original offsets",
+  "starter_dir": "starter",
+  "reference_dir": "reference",
+  "candidate_paths": [
+    "text_edits.py"
+  ],
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "expected": {
+    "starter": "fail",
+    "reference": "pass"
+  }
+}

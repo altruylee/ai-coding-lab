@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "007-recursive-placeholder-resolution",
+  "title": "Resolve escaped placeholders across nested containers",
+  "task_sha256": "c91225ae637e01647ff41b9c4c90da1163d77e16a00d2ba933aeb8baad60b86d",
+  "starter": {
+    "expected": "fail",
+    "observed": "fail",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "passed": false
+      }
+    ]
+  },
+  "reference": {
+    "expected": "pass",
+    "observed": "pass",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "benchmark_valid": true,
+    "starter_matches": true,
+    "reference_matches": true
+  }
+}
