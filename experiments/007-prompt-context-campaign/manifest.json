@@ -1,0 +1,66 @@
+{
+  "task_id": "experiment-007-prompt-context-campaign",
+  "policy_path": "experiments/007-prompt-context-campaign/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/002-codex-blind-002/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-blind-002/PROMPT.md",
+    "benchmark_runs/agents/002-codex-blind-002/attempt.json",
+    "benchmark_runs/agents/002-codex-blind-002/candidate/redactor.py",
+    "benchmark_runs/agents/002-codex-spec-only-001/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-spec-only-001/PROMPT.md",
+    "benchmark_runs/agents/002-codex-spec-only-001/attempt.json",
+    "benchmark_runs/agents/002-codex-spec-only-001/candidate/redactor.py",
+    "benchmark_runs/agents/002-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/002-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/002-codex-spec-only-002/candidate/redactor.py",
+    "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+    "benchmarks/README.md",
+    "benchmarks/campaigns.py",
+    "docs/EXPERIMENTS.md",
+    "docs/ROADMAP.md",
+    "experiments/007-prompt-context-campaign/README.md",
+    "experiments/007-prompt-context-campaign/evidence.json",
+    "experiments/007-prompt-context-campaign/manifest.json",
+    "experiments/007-prompt-context-campaign/policy.json",
+    "experiments/007-prompt-context-campaign/results.json",
+    "tests/test_campaign_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "prompt-context-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/007-prompt-context-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "first-agent-run-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/agents/002-codex-blind-001/attempt.json",
+        "--output",
+        "experiments/006-first-blind-agent-run/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

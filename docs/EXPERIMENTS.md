@@ -40,3 +40,7 @@ code, customer data, or employer-owned material.
 - Do not treat fixtures, human solutions, or reference-exposed runs as agent
   leaderboard entries.
 - Preserve unavailable token or cost metrics as `null`; never estimate them.
+- Predeclare campaign configurations and attempt membership before aggregation.
+- Retain failed attempts; do not remove them from campaign results.
+- Report counts and raw timing values for small samples, and avoid significance
+  or stable-rate claims without enough repetitions.

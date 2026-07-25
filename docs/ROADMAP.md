@@ -31,7 +31,7 @@ framework.
 
 ## Milestone 4 — Public benchmark
 
-- [ ] Run at least two agent configurations on the same tasks
+- [x] Run at least two agent configurations on the same task
 - [ ] Publish raw results and failure classifications
 - [x] Define provenance rules for recorded and community-submitted runs
 - [ ] Accept the first independently reproduced community run

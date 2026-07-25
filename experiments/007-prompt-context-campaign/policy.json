@@ -1,0 +1,29 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/002-codex-blind-002/**",
+    "benchmark_runs/agents/002-codex-spec-only-001/**",
+    "benchmark_runs/agents/002-codex-spec-only-002/**",
+    "benchmark_runs/campaigns/task002-prompt-context-001/**",
+    "benchmarks/README.md",
+    "benchmarks/campaigns.py",
+    "docs/EXPERIMENTS.md",
+    "docs/ROADMAP.md",
+    "experiments/007-prompt-context-campaign/**",
+    "tests/test_campaign_runner.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmark_runs/agents/**",
+    "benchmark_runs/campaigns/**",
+    "benchmarks/campaigns.py",
+    "experiments/007-prompt-context-campaign/**",
+    "tests/test_campaign_runner.py"
+  ]
+}

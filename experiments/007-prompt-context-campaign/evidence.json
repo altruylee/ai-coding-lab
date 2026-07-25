@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-007-prompt-context-campaign",
+  "manifest": {
+    "path": "experiments/007-prompt-context-campaign/manifest.json",
+    "sha256": "9c07265f9d43a41e9b01976d5ceb91bf3e49fb32f0136f261afc5e2cb6d99a8f"
+  },
+  "policy": {
+    "path": "experiments/007-prompt-context-campaign/policy.json",
+    "sha256": "7a1fcfac299a6f5ae2f06842eb6c1c8925cf9e1cd836f9e3bf48fd2b4a1e5601"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/002-codex-blind-002/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-blind-002/PROMPT.md",
+    "benchmark_runs/agents/002-codex-blind-002/attempt.json",
+    "benchmark_runs/agents/002-codex-blind-002/candidate/redactor.py",
+    "benchmark_runs/agents/002-codex-spec-only-001/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-spec-only-001/PROMPT.md",
+    "benchmark_runs/agents/002-codex-spec-only-001/attempt.json",
+    "benchmark_runs/agents/002-codex-spec-only-001/candidate/redactor.py",
+    "benchmark_runs/agents/002-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/002-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/002-codex-spec-only-002/candidate/redactor.py",
+    "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+    "benchmarks/README.md",
+    "benchmarks/campaigns.py",
+    "docs/EXPERIMENTS.md",
+    "docs/ROADMAP.md",
+    "experiments/007-prompt-context-campaign/README.md",
+    "experiments/007-prompt-context-campaign/evidence.json",
+    "experiments/007-prompt-context-campaign/manifest.json",
+    "experiments/007-prompt-context-campaign/policy.json",
+    "experiments/007-prompt-context-campaign/results.json",
+    "tests/test_campaign_runner.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "prompt-context-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/007-prompt-context-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e01341827c9e8e8bf7880276195f352beeba4d94ed36994e99e0a741d26ea3bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "first-agent-run-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/agents/002-codex-blind-001/attempt.json",
+        "--output",
+        "experiments/006-first-blind-agent-run/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "a49a511e5b9b6039d9d67c1d731ed8905bd8f01c9a9f0d7a32a53fefdd83fbcc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "72da530cf1ed4650b939ed9570251ed57ffc1b284a7b3a113827b85af2d9fb43"
+}

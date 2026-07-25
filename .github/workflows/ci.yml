@@ -90,6 +90,14 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Experiment 007 campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task002-prompt-context-001/campaign.json
+          --output experiments/007-prompt-context-campaign/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -119,5 +127,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/006-first-blind-agent-run/manifest.json
           --output experiments/006-first-blind-agent-run/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 007 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/007-prompt-context-campaign/manifest.json
+          --output experiments/007-prompt-context-campaign/evidence.json
           --repo-root .
           --verify

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "campaign_id": "task002-prompt-context-001",
+  "campaign_manifest": {
+    "path": "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+    "sha256": "e53bb1ff0348cc533fd82856c826af6da643eb5baba210cf9e0e091493490502"
+  },
+  "task": {
+    "path": "benchmarks/tasks/002-nested-secret-redaction",
+    "sha256": "cfa1ee26c8f7b8005e2593da625059e447e128fde59d42cc132c1962de10523c"
+  },
+  "attempts": [
+    {
+      "attempt_id": "002-codex-blind-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "8885b81f0c465cac23ac75237dc01d3ae569b74ea1ca2ca8d05685a688a005e6",
+      "candidate_sha256": "dae3001cb4fa1eb51110a260ed55e5e1a479cfa3485ca4034552615fc0107568",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 195648,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "002-codex-blind-002",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "41ab309e7fc257dce2129d806b40fea54ea19cb7fe7b41c3fa1ef9beb24af24d",
+      "candidate_sha256": "bf87b44b71dc2d075980c40b31b2a3f1d7bb56b36231ac1305a90e752fd4f28e",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 149231,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "002-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "298938532736a09f957c31ac9157805bdcfdc2df0463e106fdcb4df7bab95530",
+      "candidate_sha256": "509b576085a82c15d67660a60d5b2ddf5e1728a20af16bcfdf0c9233e7866d19",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 169795,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "002-codex-spec-only-002",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "64f3cc7fd1a481b72bd13e89ebc513731c7ba3ecde1783f4219b1fcaab385619",
+      "candidate_sha256": "6104c8915c45b2392e2069f34b53b364ae3530679b113fdd81b0f19f5697b3f8",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 163629,
+      "human_interventions": 0,
+      "usage_complete": false
+    }
+  ],
+  "configurations": [
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests",
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            195648,
+            149231
+          ],
+          "median": 172439.5,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions",
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            169795,
+            163629
+          ],
+          "median": 166712.0,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    }
+  ],
+  "summary": {
+    "attempts": 4,
+    "solved": 4,
+    "scoreboard_eligible": 4,
+    "elapsed_ms": {
+      "values": [
+        195648,
+        149231,
+        169795,
+        163629
+      ],
+      "median": 166712.0,
+      "missing": 0
+    },
+    "human_interventions": 0,
+    "usage_complete": 0
+  }
+}
