@@ -1,0 +1,47 @@
+{
+  "task_id": "experiment-002-task-evidence",
+  "policy_path": "experiments/002-task-evidence/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "pyproject.toml",
+    "agent_scope_guard/__init__.py",
+    "agent_scope_guard/cli.py",
+    "agent_scope_guard/evidence.py",
+    "docs/ROADMAP.md",
+    "experiments/002-task-evidence/README.md",
+    "experiments/002-task-evidence/evidence.json",
+    "experiments/002-task-evidence/manifest.json",
+    "experiments/002-task-evidence/policy.json",
+    "tests/test_evidence.py"
+  ],
+  "checks": [
+    {
+      "name": "scope-cli",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "check",
+        "--policy",
+        "experiments/002-task-evidence/policy.json",
+        "--changed-path",
+        "agent_scope_guard/evidence.py",
+        "--changed-path",
+        "tests/test_evidence.py",
+        "--format",
+        "json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-001-integrity",
+      "command": [
+        "python",
+        "experiments/001-scope-boundaries/run.py",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

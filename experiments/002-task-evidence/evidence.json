@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-002-task-evidence",
+  "manifest": {
+    "path": "experiments/002-task-evidence/manifest.json",
+    "sha256": "dfcfa9eacfa4bd8f4aeb4bab7182d1868c2587c0df71c97a61bca73e280c2189"
+  },
+  "policy": {
+    "path": "experiments/002-task-evidence/policy.json",
+    "sha256": "a8bc4b83f901f775c21736faaf95766d4dbb3b8cf0dd995753797f7b3b082551"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "pyproject.toml",
+    "agent_scope_guard/__init__.py",
+    "agent_scope_guard/cli.py",
+    "agent_scope_guard/evidence.py",
+    "docs/ROADMAP.md",
+    "experiments/002-task-evidence/README.md",
+    "experiments/002-task-evidence/evidence.json",
+    "experiments/002-task-evidence/manifest.json",
+    "experiments/002-task-evidence/policy.json",
+    "tests/test_evidence.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "scope-cli",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "check",
+        "--policy",
+        "experiments/002-task-evidence/policy.json",
+        "--changed-path",
+        "agent_scope_guard/evidence.py",
+        "--changed-path",
+        "tests/test_evidence.py",
+        "--format",
+        "json"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "1538c95b595e9e551d971f773ee0d2ffbd52ba63769c2716ef5192403fcd6aab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-001-integrity",
+      "command": [
+        "python",
+        "experiments/001-scope-boundaries/run.py",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "d52d65da97c00c3289d026fbcea449a9ac94be6e2aa81a37fd629c0d24a8ab90",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "05842835060e841e4778f4aa65d92fc339c2cba7b6a27d380a0955e59a879d7a"
+}

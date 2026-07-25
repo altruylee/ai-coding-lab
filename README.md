@@ -67,6 +67,28 @@ A successful check exits with code `0`. A scope violation exits with code `1`
 and explains which rule failed. Invalid configuration or Git errors exit with
 code `2`.
 
+## Task evidence bundles
+
+Version 0.2.0 can run verification commands declared in a reviewed manifest
+and create a privacy-conscious evidence bundle:
+
+```bash
+python -m agent_scope_guard evidence \
+  --manifest experiments/002-task-evidence/manifest.json \
+  --output experiments/002-task-evidence/evidence.json \
+  --repo-root .
+```
+
+The bundle records scope results, command arrays, exit codes, timeout status,
+and normalized output hashes. It does not store raw command output. Verify a
+bundle without executing its commands:
+
+```bash
+python -m agent_scope_guard verify-evidence \
+  --bundle experiments/002-task-evidence/evidence.json \
+  --repo-root .
+```
+
 ## Local verification
 
 ```bash
@@ -87,6 +109,9 @@ python experiments/001-scope-boundaries/run.py --verify
 
 Read [Experiment 001 ? Scope boundaries](experiments/001-scope-boundaries/README.md)
 for the question, inputs, success criteria, result, and limitations.
+
+[Experiment 002 ? Task evidence bundle](experiments/002-task-evidence/README.md)
+adds verifiable scope, command, output-hash, and integrity evidence.
 
 ## Repository map
 

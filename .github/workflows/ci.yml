@@ -43,3 +43,17 @@ jobs:
 
       - name: Verify Experiment 001 evidence
         run: python experiments/001-scope-boundaries/run.py --verify
+
+      - name: Reproduce Experiment 002 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/002-task-evidence/manifest.json
+          --output experiments/002-task-evidence/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Verify Experiment 002 integrity
+        run: >-
+          python -m agent_scope_guard verify-evidence
+          --bundle experiments/002-task-evidence/evidence.json
+          --repo-root .
