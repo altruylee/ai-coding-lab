@@ -107,16 +107,21 @@ evidence artifact:
 python experiments/001-scope-boundaries/run.py --verify
 ```
 
-Read [Experiment 001 ? Scope boundaries](experiments/001-scope-boundaries/README.md)
+Read [Experiment 001 — Scope boundaries](experiments/001-scope-boundaries/README.md)
 for the question, inputs, success criteria, result, and limitations.
 
-[Experiment 002 ? Task evidence bundle](experiments/002-task-evidence/README.md)
+[Experiment 002 — Task evidence bundle](experiments/002-task-evidence/README.md)
 adds verifiable scope, command, output-hash, and integrity evidence.
+
+[Experiment 003 — Coding task baseline](experiments/003-coding-task-baseline/README.md)
+adds a synthetic repository task, temporary-workspace runner, failing starter,
+passing reference, and deterministic validation result.
 
 ## Repository map
 
 ```text
 agent_scope_guard/   Scope policy engine and command-line interface
+benchmarks/          Synthetic coding-agent tasks and isolated runner
 examples/            Reproducible example policies
 experiments/         Versioned experiments and evidence artifacts
 tests/               Unit and CLI tests
@@ -145,11 +150,11 @@ The first milestones are:
 See [the roadmap](docs/ROADMAP.md) and
 [experiment protocol](docs/EXPERIMENTS.md).
 
-## ????
+## 中文说明
 
-?????? **AI Coding ???** ??????????? Agent Scope
-Guard ???? Coding Agent ?????????????????????
-??????????????????????????
+这是一个研究 **AI Coding 可靠性** 的公开实验室。首个工具 Agent Scope
+Guard 用来检查 Coding Agent 是否越过任务声明的文件边界。仓库只使用公开
+或虚构案例，不包含任何公司内部代码、数据或业务规则。
 
 ## Contributing
 

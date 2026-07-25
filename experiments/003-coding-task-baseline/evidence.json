@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-003-coding-task-baseline",
+  "manifest": {
+    "path": "experiments/003-coding-task-baseline/manifest.json",
+    "sha256": "7f3c3e045fcdc9a5a94df7a15320bbf7e1c62c4399faada929aef57fb2901c29"
+  },
+  "policy": {
+    "path": "experiments/003-coding-task-baseline/policy.json",
+    "sha256": "0291267c03706ff94b7ec8c1a61df2cb9d568843ace0969131316dc06637a8ae"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/__init__.py",
+    "benchmarks/runner.py",
+    "benchmarks/tasks/001-safe-path-resolution/TASK.md",
+    "benchmarks/tasks/001-safe-path-resolution/reference/path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/starter/path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/starter/tests/test_path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/task.json",
+    "docs/ROADMAP.md",
+    "experiments/003-coding-task-baseline/README.md",
+    "experiments/003-coding-task-baseline/evidence.json",
+    "experiments/003-coding-task-baseline/manifest.json",
+    "experiments/003-coding-task-baseline/policy.json",
+    "experiments/003-coding-task-baseline/results.json",
+    "tests/test_benchmark_runner.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "benchmark-baseline",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/001-safe-path-resolution",
+        "--output",
+        "experiments/003-coding-task-baseline/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "4375774553f430ae58910c1e486a49b194adf15012a1c88f9c988dfae05e0a6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-002-integrity",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "verify-evidence",
+        "--bundle",
+        "experiments/002-task-evidence/evidence.json",
+        "--repo-root",
+        "."
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "a77916077343e4508d44b98da5ac94efce78020e12affca88cf33b7005a72891",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "25de669de610a7629f9443e70f7dc289595bf338beb4568914f7014b00609e13"
+}
