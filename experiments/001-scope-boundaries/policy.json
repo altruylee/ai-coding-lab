@@ -1,0 +1,15 @@
+{
+  "allowed_paths": [
+    "agent_scope_guard/**",
+    "tests/**",
+    "docs/**",
+    "experiments/**"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}

@@ -21,6 +21,7 @@ framework.
 ## Milestone 3 ? Reproducible tasks
 
 - [ ] Define a compact coding-agent task format
+- [x] Publish the first synthetic scope-boundary experiment
 - [ ] Publish ten synthetic repository tasks
 - [ ] Provide deterministic validation scripts
 - [ ] Track success, cost, latency, and human intervention

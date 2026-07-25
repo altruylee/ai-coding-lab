@@ -76,11 +76,24 @@ python -m compileall -q agent_scope_guard tests
 
 The project uses only the Python standard library at runtime.
 
+## Reproducible experiments
+
+Experiment 001 checks four synthetic scope scenarios and commits a deterministic
+evidence artifact:
+
+```bash
+python experiments/001-scope-boundaries/run.py --verify
+```
+
+Read [Experiment 001 ? Scope boundaries](experiments/001-scope-boundaries/README.md)
+for the question, inputs, success criteria, result, and limitations.
+
 ## Repository map
 
 ```text
 agent_scope_guard/   Scope policy engine and command-line interface
 examples/            Reproducible example policies
+experiments/         Versioned experiments and evidence artifacts
 tests/               Unit and CLI tests
 docs/                Roadmap and experiment protocol
 .github/workflows/   Continuous integration
