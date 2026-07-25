@@ -82,6 +82,14 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Experiment 006 agent run
+        run: >-
+          python -m benchmarks.attempts
+          --attempt benchmark_runs/agents/002-codex-blind-001/attempt.json
+          --output experiments/006-first-blind-agent-run/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -103,5 +111,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/005-secret-redaction-task/manifest.json
           --output experiments/005-secret-redaction-task/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 006 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/006-first-blind-agent-run/manifest.json
+          --output experiments/006-first-blind-agent-run/evidence.json
           --repo-root .
           --verify

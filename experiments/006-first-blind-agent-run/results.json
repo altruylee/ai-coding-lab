@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "attempt_id": "002-codex-blind-001",
+  "attempt_manifest": {
+    "path": "benchmark_runs/agents/002-codex-blind-001/attempt.json",
+    "sha256": "8885b81f0c465cac23ac75237dc01d3ae569b74ea1ca2ca8d05685a688a005e6"
+  },
+  "task": {
+    "path": "benchmarks/tasks/002-nested-secret-redaction",
+    "sha256": "cfa1ee26c8f7b8005e2593da625059e447e128fde59d42cc132c1962de10523c"
+  },
+  "candidate": {
+    "path": "benchmark_runs/agents/002-codex-blind-001/candidate",
+    "sha256": "dae3001cb4fa1eb51110a260ed55e5e1a479cfa3485ca4034552615fc0107568",
+    "changed_paths": [
+      "redactor.py"
+    ]
+  },
+  "provenance": {
+    "kind": "agent",
+    "agent_name": "OpenAI Codex",
+    "agent_version": null,
+    "model": "GPT-5 family (exact deployment not exposed)",
+    "reference_access": false
+  },
+  "execution": {
+    "permissions": [
+      "read-supplied-prompt",
+      "return-candidate-text"
+    ],
+    "network_access": "restricted",
+    "elapsed_ms": 195648,
+    "human_interventions": 0
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "solved": true,
+    "observed": "pass",
+    "scoreboard_eligible": true,
+    "usage_complete": false
+  },
+  "artifacts": [
+    {
+      "name": "prompt",
+      "path": "benchmark_runs/agents/002-codex-blind-001/PROMPT.md",
+      "sha256": "8596e45f0e9a0c2d8df228904e773672a2be87b5462da8ca17842ad827aa5de9"
+    },
+    {
+      "name": "attestation",
+      "path": "benchmark_runs/agents/002-codex-blind-001/ATTESTATION.md",
+      "sha256": "f0e5021643db1c23aa785bb02bb215641b864992af04cd662844dd4645e8179d"
+    }
+  ]
+}
