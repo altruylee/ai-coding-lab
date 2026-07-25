@@ -1,0 +1,66 @@
+{
+  "experiment_id": "001-scope-boundaries",
+  "question": "Can scope policy distinguish allowed changes, out-of-scope files, missing tests, and sensitive key files?",
+  "summary": {
+    "cases": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "cases": [
+    {
+      "id": "allowed_code_and_test",
+      "description": "A code change accompanied by its test stays in scope.",
+      "changed_paths": [
+        "agent_scope_guard/cli.py",
+        "tests/test_cli.py"
+      ],
+      "expected_codes": [],
+      "observed_codes": [],
+      "passed": true
+    },
+    {
+      "id": "outside_declared_scope",
+      "description": "An unrelated private adapter is outside every allowed pattern.",
+      "changed_paths": [
+        "private/customer_adapter.py",
+        "tests/test_cli.py"
+      ],
+      "expected_codes": [
+        "outside_allowed_scope"
+      ],
+      "observed_codes": [
+        "outside_allowed_scope"
+      ],
+      "passed": true
+    },
+    {
+      "id": "test_change_missing",
+      "description": "A code-only change violates the required test-path rule.",
+      "changed_paths": [
+        "agent_scope_guard/cli.py"
+      ],
+      "expected_codes": [
+        "required_path_missing"
+      ],
+      "observed_codes": [
+        "required_path_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "root_secret_file",
+      "description": "A root-level key is denied even when a test also changed.",
+      "changed_paths": [
+        "deploy.key",
+        "tests/test_cli.py"
+      ],
+      "expected_codes": [
+        "denied_path"
+      ],
+      "observed_codes": [
+        "denied_path"
+      ],
+      "passed": true
+    }
+  ]
+}

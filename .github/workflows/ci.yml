@@ -40,3 +40,6 @@ jobs:
           --policy examples/policy.json
           --changed-path agent_scope_guard/cli.py
           --changed-path tests/test_cli.py
+
+      - name: Verify Experiment 001 evidence
+        run: python experiments/001-scope-boundaries/run.py --verify
