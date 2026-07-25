@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task_id": "002-nested-secret-redaction",
+  "title": "Redact nested agent telemetry without mutating the input",
+  "task_sha256": "cfa1ee26c8f7b8005e2593da625059e447e128fde59d42cc132c1962de10523c",
+  "starter": {
+    "expected": "fail",
+    "observed": "fail",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "passed": false
+      }
+    ]
+  },
+  "reference": {
+    "expected": "pass",
+    "observed": "pass",
+    "matches_expected": true,
+    "checks": [
+      {
+        "name": "unit-tests",
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "benchmark_valid": true,
+    "starter_matches": true,
+    "reference_matches": true
+  }
+}

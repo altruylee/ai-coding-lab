@@ -1,0 +1,55 @@
+{
+  "task_id": "experiment-005-secret-redaction-task",
+  "policy_path": "experiments/005-secret-redaction-task/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/002-nested-secret-redaction/TASK.md",
+    "benchmarks/tasks/002-nested-secret-redaction/reference/redactor.py",
+    "benchmarks/tasks/002-nested-secret-redaction/starter/redactor.py",
+    "benchmarks/tasks/002-nested-secret-redaction/starter/tests/test_redactor.py",
+    "benchmarks/tasks/002-nested-secret-redaction/task.json",
+    "docs/ROADMAP.md",
+    "experiments/005-secret-redaction-task/README.md",
+    "experiments/005-secret-redaction-task/evidence.json",
+    "experiments/005-secret-redaction-task/manifest.json",
+    "experiments/005-secret-redaction-task/policy.json",
+    "experiments/005-secret-redaction-task/results.json",
+    "tests/test_task_002.py"
+  ],
+  "checks": [
+    {
+      "name": "task-002-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/002-nested-secret-redaction",
+        "--output",
+        "experiments/005-secret-redaction-task/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "attempt-protocol-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+        "--output",
+        "experiments/004-attempt-protocol/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

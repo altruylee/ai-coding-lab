@@ -121,6 +121,9 @@ passing reference, and deterministic validation result.
 adds provenance-aware candidate replay, declared change boundaries, metric
 fields, and explicit scoreboard eligibility.
 
+[Experiment 005 — Nested secret redaction task](experiments/005-secret-redaction-task/README.md)
+adds a second synthetic task covering privacy-safe agent telemetry.
+
 ## Repository map
 
 ```text
