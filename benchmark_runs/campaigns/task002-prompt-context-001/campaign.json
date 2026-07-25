@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "campaign_id": "task002-prompt-context-001",
+  "task": "benchmarks/tasks/002-nested-secret-redaction",
+  "configurations": [
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests"
+    },
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions"
+    }
+  ],
+  "attempts": [
+    {
+      "configuration": "public-test-descriptions",
+      "attempt": "benchmark_runs/agents/002-codex-blind-001/attempt.json"
+    },
+    {
+      "configuration": "public-test-descriptions",
+      "attempt": "benchmark_runs/agents/002-codex-blind-002/attempt.json"
+    },
+    {
+      "configuration": "spec-only",
+      "attempt": "benchmark_runs/agents/002-codex-spec-only-001/attempt.json"
+    },
+    {
+      "configuration": "spec-only",
+      "attempt": "benchmark_runs/agents/002-codex-spec-only-002/attempt.json"
+    }
+  ]
+}

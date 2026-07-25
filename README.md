@@ -128,6 +128,9 @@ adds a second synthetic task covering privacy-safe agent telemetry.
 records the first provenance-aware agent candidate, including latency,
 intervention count, missing usage data, attestation, and limitations.
 
+[Experiment 007 — Prompt-context comparison campaign](experiments/007-prompt-context-campaign/README.md)
+compares two prompt configurations with two blinded attempts each.
+
 ## Repository map
 
 ```text

@@ -28,12 +28,18 @@ entries, even when their candidate code passes.
 
 ## Recorded agent runs
 
-| Task | Attempt | Agent/model | Result | Elapsed | Human interventions |
+| Task | Attempt | Configuration | Result | Elapsed | Human interventions |
 | --- | --- | --- | --- | ---: | ---: |
-| 002 | [`002-codex-blind-001`](agents/002-codex-blind-001/) | OpenAI Codex / GPT-5 family | pass | 195.648 s | 0 |
+| 002 | [`002-codex-blind-001`](agents/002-codex-blind-001/) | public test descriptions | pass | 195.648 s | 0 |
+| 002 | [`002-codex-blind-002`](agents/002-codex-blind-002/) | public test descriptions | pass | 149.231 s | 0 |
+| 002 | [`002-codex-spec-only-001`](agents/002-codex-spec-only-001/) | specification only | pass | 169.795 s | 0 |
+| 002 | [`002-codex-spec-only-002`](agents/002-codex-spec-only-002/) | specification only | pass | 163.629 s | 0 |
 
-This is a run log, not a model ranking. Token usage and cost were unavailable
-for the first run.
+All four runs used OpenAI Codex with the GPT-5 family disclosure. This is a run
+log, not a model ranking. Token usage and cost were unavailable.
+
+Campaign manifests group repeated attempts without deleting failures. See
+[`task002-prompt-context-001`](campaigns/task002-prompt-context-001/campaign.json).
 
 ## Security boundary
 

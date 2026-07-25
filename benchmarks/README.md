@@ -53,3 +53,17 @@ python -m benchmarks.attempts \
 Attempt manifests distinguish real agent runs from human submissions and
 protocol fixtures. Passing checks alone does not make a run
 scoreboard-eligible; see [`benchmark_runs/README.md`](../benchmark_runs/README.md).
+
+## Aggregate a repeated campaign
+
+```bash
+python -m benchmarks.campaigns \
+  --campaign benchmark_runs/campaigns/task002-prompt-context-001/campaign.json \
+  --output experiments/007-prompt-context-campaign/results.json \
+  --repo-root . \
+  --verify
+```
+
+Campaign results retain every declared attempt and report integer success
+counts, original elapsed values, median latency, interventions, and missing
+usage data per configuration.
