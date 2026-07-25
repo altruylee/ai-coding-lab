@@ -1,0 +1,18 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/**",
+    "tests/**",
+    "docs/**",
+    "experiments/**"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/.env"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}

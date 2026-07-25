@@ -1,0 +1,55 @@
+{
+  "task_id": "experiment-003-coding-task-baseline",
+  "policy_path": "experiments/003-coding-task-baseline/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/__init__.py",
+    "benchmarks/runner.py",
+    "benchmarks/tasks/001-safe-path-resolution/TASK.md",
+    "benchmarks/tasks/001-safe-path-resolution/reference/path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/starter/path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/starter/tests/test_path_guard.py",
+    "benchmarks/tasks/001-safe-path-resolution/task.json",
+    "docs/ROADMAP.md",
+    "experiments/003-coding-task-baseline/README.md",
+    "experiments/003-coding-task-baseline/evidence.json",
+    "experiments/003-coding-task-baseline/manifest.json",
+    "experiments/003-coding-task-baseline/policy.json",
+    "experiments/003-coding-task-baseline/results.json",
+    "tests/test_benchmark_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "benchmark-baseline",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/001-safe-path-resolution",
+        "--output",
+        "experiments/003-coding-task-baseline/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-002-integrity",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "verify-evidence",
+        "--bundle",
+        "experiments/002-task-evidence/evidence.json",
+        "--repo-root",
+        "."
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

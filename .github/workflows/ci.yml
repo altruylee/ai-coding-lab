@@ -57,3 +57,19 @@ jobs:
           python -m agent_scope_guard verify-evidence
           --bundle experiments/002-task-evidence/evidence.json
           --repo-root .
+
+      - name: Reproduce Experiment 003 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/001-safe-path-resolution
+          --output experiments/003-coding-task-baseline/results.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 003 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/003-coding-task-baseline/manifest.json
+          --output experiments/003-coding-task-baseline/evidence.json
+          --repo-root .
+          --verify
