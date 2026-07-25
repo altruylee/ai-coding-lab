@@ -131,6 +131,9 @@ intervention count, missing usage data, attestation, and limitations.
 [Experiment 007 — Prompt-context comparison campaign](experiments/007-prompt-context-campaign/README.md)
 compares two prompt configurations with two blinded attempts each.
 
+[Experiment 008 — Deterministic dependency-order task](experiments/008-deterministic-dependency-task/README.md)
+adds a graph-planning challenge with stable ordering and deterministic errors.
+
 ## Repository map
 
 ```text

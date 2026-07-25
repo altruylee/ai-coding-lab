@@ -1,0 +1,55 @@
+{
+  "task_id": "experiment-008-deterministic-dependency-task",
+  "policy_path": "experiments/008-deterministic-dependency-task/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/003-deterministic-dependency-order/TASK.md",
+    "benchmarks/tasks/003-deterministic-dependency-order/reference/planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/starter/planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/starter/tests/test_planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/task.json",
+    "docs/ROADMAP.md",
+    "experiments/008-deterministic-dependency-task/README.md",
+    "experiments/008-deterministic-dependency-task/evidence.json",
+    "experiments/008-deterministic-dependency-task/manifest.json",
+    "experiments/008-deterministic-dependency-task/policy.json",
+    "experiments/008-deterministic-dependency-task/results.json",
+    "tests/test_task_003.py"
+  ],
+  "checks": [
+    {
+      "name": "task-003-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/003-deterministic-dependency-order",
+        "--output",
+        "experiments/008-deterministic-dependency-task/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-002-campaign-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/007-prompt-context-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}
