@@ -88,6 +88,7 @@ def _parse_attempt(path: Path) -> dict[str, Any]:
             "provenance",
             "execution",
             "usage",
+            "artifacts",
         },
         {
             "schema_version",
@@ -213,6 +214,26 @@ def _parse_attempt(path: Path) -> dict[str, Any]:
         )
     ):
         raise AttemptError("usage.cost_usd must be null or non-negative")
+
+    artifacts = attempt.get("artifacts", [])
+    if not isinstance(artifacts, list):
+        raise AttemptError("artifacts must be a JSON array")
+    artifact_names: set[str] = set()
+    for index, artifact in enumerate(artifacts):
+        item = _require_fields(
+            artifact,
+            f"artifacts[{index}]",
+            {"name", "path"},
+            {"name", "path"},
+        )
+        for field in ("name", "path"):
+            if not isinstance(item[field], str) or not item[field].strip():
+                raise AttemptError(
+                    f"artifacts[{index}].{field} must be a non-empty string"
+                )
+        if item["name"] in artifact_names:
+            raise AttemptError(f"duplicate artifact name: {item['name']}")
+        artifact_names.add(item["name"])
     return attempt
 
 
@@ -228,6 +249,20 @@ def _resolve_candidate(manifest: Path, value: str) -> Path:
     if not candidate.is_dir():
         raise AttemptError(f"candidate_dir is not a directory: {value}")
     return candidate
+
+
+def _resolve_artifact(manifest: Path, value: str) -> Path:
+    attempt_root = manifest.parent.resolve()
+    artifact = (attempt_root / value).resolve()
+    try:
+        artifact.relative_to(attempt_root)
+    except ValueError as exc:
+        raise AttemptError(
+            "artifact path is outside the attempt directory"
+        ) from exc
+    if not artifact.is_file():
+        raise AttemptError(f"artifact path is not a file: {value}")
+    return artifact
 
 
 def build_attempt_result(
@@ -246,6 +281,18 @@ def build_attempt_result(
     provenance = attempt["provenance"]
     execution = attempt["execution"]
     usage = attempt["usage"]
+    artifacts: list[dict[str, str]] = []
+    for item in attempt.get("artifacts", []):
+        artifact_path = _resolve_artifact(manifest, item["path"])
+        artifacts.append(
+            {
+                "name": item["name"],
+                "path": artifact_path.relative_to(root).as_posix(),
+                "sha256": hashlib.sha256(
+                    artifact_path.read_bytes()
+                ).hexdigest(),
+            }
+        )
     eligible = (
         candidate_result["solved"]
         and provenance["kind"] == "agent"
@@ -255,7 +302,7 @@ def build_attempt_result(
     )
     usage_complete = all(value is not None for value in usage.values())
 
-    return {
+    result = {
         "schema_version": 1,
         "attempt_id": attempt["attempt_id"],
         "attempt_manifest": {
@@ -282,6 +329,9 @@ def build_attempt_result(
             "usage_complete": usage_complete,
         },
     }
+    if artifacts:
+        result["artifacts"] = artifacts
+    return result
 
 
 def serialize_attempt_result(result: Mapping[str, Any]) -> str:

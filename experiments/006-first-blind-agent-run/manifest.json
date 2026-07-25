@@ -1,0 +1,56 @@
+{
+  "task_id": "experiment-006-first-blind-agent-run",
+  "policy_path": "experiments/006-first-blind-agent-run/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/002-codex-blind-001/ATTESTATION.md",
+    "benchmark_runs/agents/002-codex-blind-001/PROMPT.md",
+    "benchmark_runs/agents/002-codex-blind-001/attempt.json",
+    "benchmark_runs/agents/002-codex-blind-001/candidate/redactor.py",
+    "benchmarks/attempts.py",
+    "docs/ROADMAP.md",
+    "experiments/006-first-blind-agent-run/README.md",
+    "experiments/006-first-blind-agent-run/evidence.json",
+    "experiments/006-first-blind-agent-run/manifest.json",
+    "experiments/006-first-blind-agent-run/policy.json",
+    "experiments/006-first-blind-agent-run/results.json",
+    "tests/test_agent_run_002.py",
+    "tests/test_attempt_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "blind-agent-attempt",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/agents/002-codex-blind-001/attempt.json",
+        "--output",
+        "experiments/006-first-blind-agent-run/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "fixture-backward-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+        "--output",
+        "experiments/004-attempt-protocol/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

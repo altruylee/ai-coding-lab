@@ -27,7 +27,7 @@ framework.
 - [ ] Publish ten synthetic repository tasks (2/10)
 - [x] Provide deterministic validation scripts
 - [x] Define success, cost, latency, and human-intervention fields
-- [ ] Publish the first blinded agent attempt with recorded metrics
+- [x] Publish the first blinded agent attempt with recorded metrics
 
 ## Milestone 4 — Public benchmark
 

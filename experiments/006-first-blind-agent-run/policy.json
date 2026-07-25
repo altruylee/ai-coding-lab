@@ -1,0 +1,24 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/002-codex-blind-001/**",
+    "benchmarks/attempts.py",
+    "docs/ROADMAP.md",
+    "experiments/006-first-blind-agent-run/**",
+    "tests/test_agent_run_002.py",
+    "tests/test_attempt_runner.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmark_runs/agents/002-codex-blind-001/**",
+    "benchmarks/attempts.py",
+    "experiments/006-first-blind-agent-run/**",
+    "tests/**"
+  ]
+}

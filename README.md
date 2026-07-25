@@ -124,6 +124,10 @@ fields, and explicit scoreboard eligibility.
 [Experiment 005 — Nested secret redaction task](experiments/005-secret-redaction-task/README.md)
 adds a second synthetic task covering privacy-safe agent telemetry.
 
+[Experiment 006 — First blind agent run](experiments/006-first-blind-agent-run/README.md)
+records the first provenance-aware agent candidate, including latency,
+intervention count, missing usage data, attestation, and limitations.
+
 ## Repository map
 
 ```text

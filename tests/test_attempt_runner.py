@@ -159,6 +159,24 @@ class AttemptRunnerTests(unittest.TestCase):
             ):
                 build_attempt_result(manifest, root)
 
+    def test_artifact_path_cannot_escape_attempt_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, manifest = self._sandbox(directory)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            data["artifacts"] = [
+                {"name": "outside", "path": "../../outside.txt"}
+            ]
+            manifest.write_text(
+                json.dumps(data, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(
+                AttemptError,
+                "artifact path is outside",
+            ):
+                build_attempt_result(manifest, root)
+
 
 if __name__ == "__main__":
     unittest.main()

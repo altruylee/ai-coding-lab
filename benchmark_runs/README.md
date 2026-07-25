@@ -4,6 +4,7 @@ Each attempt stores:
 
 - an `attempt.json` provenance manifest;
 - a candidate file overlay;
+- optional hashed prompt and attestation artifacts;
 - deterministic validation results in a versioned experiment.
 
 Candidate overlays are applied to a temporary copy of the task starter. The
@@ -24,6 +25,15 @@ result preserves that missing-data state instead of estimating values.
 
 The `fixtures/` directory tests this protocol. Fixtures are never leaderboard
 entries, even when their candidate code passes.
+
+## Recorded agent runs
+
+| Task | Attempt | Agent/model | Result | Elapsed | Human interventions |
+| --- | --- | --- | --- | ---: | ---: |
+| 002 | [`002-codex-blind-001`](agents/002-codex-blind-001/) | OpenAI Codex / GPT-5 family | pass | 195.648 s | 0 |
+
+This is a run log, not a model ranking. Token usage and cost were unavailable
+for the first run.
 
 ## Security boundary
 
