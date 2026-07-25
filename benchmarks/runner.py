@@ -21,7 +21,8 @@ class BenchmarkError(ValueError):
 
 def _task_hash(task_dir: Path) -> str:
     digest = hashlib.sha256()
-    for path in sorted(task_dir.rglob("*")):
+    entries: list[tuple[str, Path]] = []
+    for path in task_dir.rglob("*"):
         if "__pycache__" in path.parts or path.suffix in {".pyc", ".pyo"}:
             continue
         if path.is_symlink():
@@ -29,6 +30,11 @@ def _task_hash(task_dir: Path) -> str:
         if not path.is_file():
             continue
         relative = path.relative_to(task_dir).as_posix()
+        entries.append((relative, path))
+
+    # WindowsPath ordering is case-insensitive while PosixPath ordering is not.
+    # Sort the portable relative strings so identical task bytes hash identically.
+    for relative, path in sorted(entries, key=lambda entry: entry[0]):
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
         digest.update(path.read_bytes())

@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 import shutil
 import tempfile
 import unittest
 
-from benchmarks.runner import run_benchmark, serialize_result
+from benchmarks.runner import _task_hash, run_benchmark, serialize_result
 
 
 class BenchmarkRunnerTests(unittest.TestCase):
@@ -41,6 +42,28 @@ class BenchmarkRunnerTests(unittest.TestCase):
             (cache / "path_guard.cpython-312.pyc").write_bytes(b"cache noise")
             after = serialize_result(run_benchmark(copied_task))
         self.assertEqual(before, after)
+
+    def test_task_hash_uses_portable_relative_path_order(self) -> None:
+        files = {
+            "TASK.md": b"task",
+            "reference/path_guard.py": b"reference",
+            "starter/path_guard.py": b"starter",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            task = Path(directory, "task")
+            for relative, content in files.items():
+                path = task / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(content)
+
+            expected = hashlib.sha256()
+            for relative in sorted(files):
+                expected.update(relative.encode("utf-8"))
+                expected.update(b"\0")
+                expected.update(files[relative])
+                expected.update(b"\0")
+
+            self.assertEqual(_task_hash(task), expected.hexdigest())
 
 
 if __name__ == "__main__":
