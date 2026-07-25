@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-008-deterministic-dependency-task",
+  "manifest": {
+    "path": "experiments/008-deterministic-dependency-task/manifest.json",
+    "sha256": "3942660bc87cec66d7b6a0f050853312275bba5e5e4fbb482e18f425f10062c2"
+  },
+  "policy": {
+    "path": "experiments/008-deterministic-dependency-task/policy.json",
+    "sha256": "b0315d2f25785a3c5ea92cefa25bce7d820e1f5a84b263dfed5d3de57b478b26"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/003-deterministic-dependency-order/TASK.md",
+    "benchmarks/tasks/003-deterministic-dependency-order/reference/planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/starter/planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/starter/tests/test_planner.py",
+    "benchmarks/tasks/003-deterministic-dependency-order/task.json",
+    "docs/ROADMAP.md",
+    "experiments/008-deterministic-dependency-task/README.md",
+    "experiments/008-deterministic-dependency-task/evidence.json",
+    "experiments/008-deterministic-dependency-task/manifest.json",
+    "experiments/008-deterministic-dependency-task/policy.json",
+    "experiments/008-deterministic-dependency-task/results.json",
+    "tests/test_task_003.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "task-003-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/003-deterministic-dependency-order",
+        "--output",
+        "experiments/008-deterministic-dependency-task/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "4375774553f430ae58910c1e486a49b194adf15012a1c88f9c988dfae05e0a6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "task-002-campaign-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/007-prompt-context-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e01341827c9e8e8bf7880276195f352beeba4d94ed36994e99e0a741d26ea3bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "2fc41acbd1b65957c4a9f75cc24b8c3fc6982871e784eb1bb419cea7be52323f"
+}

@@ -98,6 +98,14 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Experiment 008 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/003-deterministic-dependency-order
+          --output experiments/008-deterministic-dependency-task/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -135,5 +143,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/007-prompt-context-campaign/manifest.json
           --output experiments/007-prompt-context-campaign/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 008 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/008-deterministic-dependency-task/manifest.json
+          --output experiments/008-deterministic-dependency-task/evidence.json
           --repo-root .
           --verify

@@ -1,0 +1,21 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/003-deterministic-dependency-order/**",
+    "docs/ROADMAP.md",
+    "experiments/008-deterministic-dependency-task/**",
+    "tests/test_task_003.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmarks/tasks/003-deterministic-dependency-order/**",
+    "experiments/008-deterministic-dependency-task/**",
+    "tests/test_task_003.py"
+  ]
+}

@@ -22,6 +22,8 @@ task, just as you would review a script or CI workflow.
 - `001-safe-path-resolution` — reject workspace path escapes.
 - `002-nested-secret-redaction` — redact nested agent telemetry without
   mutating the input.
+- `003-deterministic-dependency-order` — produce a stable dependency order and
+  reject invalid graphs.
 
 ## Run a task
 
