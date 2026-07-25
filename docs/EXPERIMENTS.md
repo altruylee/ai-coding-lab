@@ -37,3 +37,6 @@ code, customer data, or employer-owned material.
 - Repeat unstable runs and publish the variance.
 - Treat a partial result as partial; do not convert it into a binary success.
 - Separate observed results from interpretation.
+- Do not treat fixtures, human solutions, or reference-exposed runs as agent
+  leaderboard entries.
+- Preserve unavailable token or cost metrics as `null`; never estimate them.

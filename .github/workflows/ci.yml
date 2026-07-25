@@ -66,10 +66,26 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Experiment 004 attempt
+        run: >-
+          python -m benchmarks.attempts
+          --attempt benchmark_runs/fixtures/001-reference-replay/attempt.json
+          --output experiments/004-attempt-protocol/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
           --manifest experiments/003-coding-task-baseline/manifest.json
           --output experiments/003-coding-task-baseline/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 004 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/004-attempt-protocol/manifest.json
+          --output experiments/004-attempt-protocol/evidence.json
           --repo-root .
           --verify
