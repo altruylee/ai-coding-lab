@@ -17,6 +17,12 @@ commands. It does not modify the checked-in starter or reference files.
 Task commands are executable instructions. Review `task.json` before running a
 task, just as you would review a script or CI workflow.
 
+## Task catalog
+
+- `001-safe-path-resolution` — reject workspace path escapes.
+- `002-nested-secret-redaction` — redact nested agent telemetry without
+  mutating the input.
+
 ## Run a task
 
 ```bash

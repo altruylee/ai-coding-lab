@@ -1,0 +1,21 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmarks/README.md",
+    "benchmarks/tasks/002-nested-secret-redaction/**",
+    "docs/ROADMAP.md",
+    "experiments/005-secret-redaction-task/**",
+    "tests/test_task_002.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmarks/tasks/002-nested-secret-redaction/**",
+    "experiments/005-secret-redaction-task/**",
+    "tests/test_task_002.py"
+  ]
+}

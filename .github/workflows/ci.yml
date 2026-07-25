@@ -74,6 +74,14 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Experiment 005 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/002-nested-secret-redaction
+          --output experiments/005-secret-redaction-task/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -87,5 +95,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/004-attempt-protocol/manifest.json
           --output experiments/004-attempt-protocol/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 005 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/005-secret-redaction-task/manifest.json
+          --output experiments/005-secret-redaction-task/evidence.json
           --repo-root .
           --verify
