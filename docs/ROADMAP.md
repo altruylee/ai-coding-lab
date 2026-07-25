@@ -13,10 +13,11 @@ framework.
 
 ## Milestone 2 ? Evidence
 
-- [ ] Record commands requested and commands actually executed
-- [ ] Verify that declared tests ran successfully
-- [ ] Produce a machine-readable task evidence bundle
-- [ ] Sign or hash evidence artifacts
+- [x] Record declared commands and observed exit status
+- [x] Verify that declared checks ran successfully
+- [x] Produce a machine-readable task evidence bundle
+- [x] Hash evidence artifacts and their referenced inputs
+- [ ] Sign evidence with CI-native identity
 
 ## Milestone 3 ? Reproducible tasks
 
