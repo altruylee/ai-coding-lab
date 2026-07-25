@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from fnmatch import fnmatchcase
 import hashlib
 import json
 from pathlib import Path
@@ -60,6 +61,7 @@ def _load_task(task_dir: Path) -> dict[str, Any]:
         "title",
         "starter_dir",
         "reference_dir",
+        "candidate_paths",
         "checks",
         "expected",
     }
@@ -70,6 +72,22 @@ def _load_task(task_dir: Path) -> dict[str, Any]:
     for field in ("id", "title", "starter_dir", "reference_dir"):
         if not isinstance(task.get(field), str) or not task[field].strip():
             raise BenchmarkError(f"{field} must be a non-empty string")
+
+    candidate_paths = task.get("candidate_paths")
+    if (
+        not isinstance(candidate_paths, list)
+        or not candidate_paths
+        or not all(
+            isinstance(pattern, str)
+            and pattern
+            and not pattern.startswith(("/", "\\"))
+            and ".." not in pattern.replace("\\", "/").split("/")
+            for pattern in candidate_paths
+        )
+    ):
+        raise BenchmarkError(
+            "candidate_paths must contain safe repository-relative patterns"
+        )
 
     checks = task.get("checks")
     if not isinstance(checks, list) or not checks:
@@ -183,6 +201,69 @@ def _run_variant(
         "expected": expected,
         "observed": observed,
         "matches_expected": observed == expected,
+        "checks": checks,
+    }
+
+
+def _candidate_files(candidate_dir: Path) -> list[str]:
+    _task_hash(candidate_dir)
+    return sorted(
+        path.relative_to(candidate_dir).as_posix()
+        for path in candidate_dir.rglob("*")
+        if path.is_file()
+        and "__pycache__" not in path.parts
+        and path.suffix not in {".pyc", ".pyo"}
+    )
+
+
+def run_candidate(
+    task_dir: str | Path,
+    candidate_dir: str | Path,
+) -> dict[str, Any]:
+    """Run a candidate overlay without exposing the reference implementation."""
+
+    directory = Path(task_dir).resolve()
+    candidate = Path(candidate_dir).resolve()
+    _task_hash(directory)
+    task = _load_task(directory)
+    starter = _task_child(directory, task["starter_dir"], "starter_dir")
+    candidate_files = _candidate_files(candidate)
+    if not candidate_files:
+        raise BenchmarkError("candidate_dir must contain at least one file")
+
+    patterns = [
+        pattern.replace("\\", "/") for pattern in task["candidate_paths"]
+    ]
+    disallowed = [
+        path
+        for path in candidate_files
+        if not any(fnmatchcase(path, pattern) for pattern in patterns)
+    ]
+    if disallowed:
+        raise BenchmarkError(
+            "candidate contains disallowed path(s): "
+            + ", ".join(disallowed)
+        )
+
+    with tempfile.TemporaryDirectory(
+        prefix=f"{task['id']}-candidate-"
+    ) as directory_name:
+        workspace = Path(directory_name) / "workspace"
+        ignored = shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo")
+        shutil.copytree(starter, workspace, ignore=ignored)
+        shutil.copytree(
+            candidate,
+            workspace,
+            dirs_exist_ok=True,
+            ignore=ignored,
+        )
+        checks = _run_checks(task["checks"], workspace)
+
+    observed = "pass" if all(check["passed"] for check in checks) else "fail"
+    return {
+        "observed": observed,
+        "solved": observed == "pass",
+        "candidate_paths": candidate_files,
         "checks": checks,
     }
 

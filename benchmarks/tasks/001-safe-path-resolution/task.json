@@ -3,6 +3,9 @@
   "title": "Reject workspace path escapes without breaking hidden directories",
   "starter_dir": "starter",
   "reference_dir": "reference",
+  "candidate_paths": [
+    "path_guard.py"
+  ],
   "checks": [
     {
       "name": "unit-tests",

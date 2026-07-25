@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-004-attempt-protocol",
+  "manifest": {
+    "path": "experiments/004-attempt-protocol/manifest.json",
+    "sha256": "56198812dbe7f0a2a04eb5335ee8d46ae1d736c52064d2b538490587889071a1"
+  },
+  "policy": {
+    "path": "experiments/004-attempt-protocol/policy.json",
+    "sha256": "2c6a8835c93061d826bbcd5a0f208fa98a3e11f9fb1e35c02553497edf85da16"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+    "benchmark_runs/fixtures/001-reference-replay/candidate/path_guard.py",
+    "benchmarks/README.md",
+    "benchmarks/attempts.py",
+    "benchmarks/runner.py",
+    "benchmarks/tasks/001-safe-path-resolution/task.json",
+    "docs/EXPERIMENTS.md",
+    "docs/ROADMAP.md",
+    "experiments/003-coding-task-baseline/results.json",
+    "experiments/004-attempt-protocol/README.md",
+    "experiments/004-attempt-protocol/evidence.json",
+    "experiments/004-attempt-protocol/manifest.json",
+    "experiments/004-attempt-protocol/policy.json",
+    "experiments/004-attempt-protocol/results.json",
+    "tests/test_attempt_runner.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "attempt-protocol",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+        "--output",
+        "experiments/004-attempt-protocol/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "a49a511e5b9b6039d9d67c1d731ed8905bd8f01c9a9f0d7a32a53fefdd83fbcc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-003-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/001-safe-path-resolution",
+        "--output",
+        "experiments/003-coding-task-baseline/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "4375774553f430ae58910c1e486a49b194adf15012a1c88f9c988dfae05e0a6d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "44450a108331ce5abdbd25b713256911ec175e4a6297d1319488d5f4123828fd"
+}

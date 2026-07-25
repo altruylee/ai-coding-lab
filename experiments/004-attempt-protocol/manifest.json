@@ -1,0 +1,58 @@
+{
+  "task_id": "experiment-004-attempt-protocol",
+  "policy_path": "experiments/004-attempt-protocol/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+    "benchmark_runs/fixtures/001-reference-replay/candidate/path_guard.py",
+    "benchmarks/README.md",
+    "benchmarks/attempts.py",
+    "benchmarks/runner.py",
+    "benchmarks/tasks/001-safe-path-resolution/task.json",
+    "docs/EXPERIMENTS.md",
+    "docs/ROADMAP.md",
+    "experiments/003-coding-task-baseline/results.json",
+    "experiments/004-attempt-protocol/README.md",
+    "experiments/004-attempt-protocol/evidence.json",
+    "experiments/004-attempt-protocol/manifest.json",
+    "experiments/004-attempt-protocol/policy.json",
+    "experiments/004-attempt-protocol/results.json",
+    "tests/test_attempt_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "attempt-protocol",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+        "--output",
+        "experiments/004-attempt-protocol/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-003-benchmark",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.runner",
+        "--task",
+        "benchmarks/tasks/001-safe-path-resolution",
+        "--output",
+        "experiments/003-coding-task-baseline/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

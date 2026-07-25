@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "attempt_id": "fixture-001-reference-replay",
+  "attempt_manifest": {
+    "path": "benchmark_runs/fixtures/001-reference-replay/attempt.json",
+    "sha256": "32e08f69166ea5038a1821d17506a6849bcee39d1ba57406e7ed82bdf92f7755"
+  },
+  "task": {
+    "path": "benchmarks/tasks/001-safe-path-resolution",
+    "sha256": "e7a6b40219b69554b72919fae165c8a654564bc5e739bb98aeb62b8e26414c81"
+  },
+  "candidate": {
+    "path": "benchmark_runs/fixtures/001-reference-replay/candidate",
+    "sha256": "a7781a21be3e519691778a1c012f6fb37d8b1ed733334ef7d85dc7c5faab994c",
+    "changed_paths": [
+      "path_guard.py"
+    ]
+  },
+  "provenance": {
+    "kind": "fixture",
+    "agent_name": null,
+    "agent_version": null,
+    "model": null,
+    "reference_access": true
+  },
+  "execution": {
+    "permissions": [
+      "read-task",
+      "write-candidate",
+      "run-checks"
+    ],
+    "network_access": "disabled",
+    "elapsed_ms": null,
+    "human_interventions": 0
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "solved": true,
+    "observed": "pass",
+    "scoreboard_eligible": false,
+    "usage_complete": false
+  }
+}

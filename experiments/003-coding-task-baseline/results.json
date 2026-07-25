@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "001-safe-path-resolution",
   "title": "Reject workspace path escapes without breaking hidden directories",
-  "task_sha256": "2684169860e7d8949e973773bd49256aae2db7f7532215a5e7ecd5ab1277acee",
+  "task_sha256": "e7a6b40219b69554b72919fae165c8a654564bc5e739bb98aeb62b8e26414c81",
   "starter": {
     "expected": "fail",
     "observed": "fail",

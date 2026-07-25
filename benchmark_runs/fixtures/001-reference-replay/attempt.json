@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "attempt_id": "fixture-001-reference-replay",
+  "task": "benchmarks/tasks/001-safe-path-resolution",
+  "candidate_dir": "candidate",
+  "provenance": {
+    "kind": "fixture",
+    "agent_name": null,
+    "agent_version": null,
+    "model": null,
+    "reference_access": true
+  },
+  "execution": {
+    "permissions": [
+      "read-task",
+      "write-candidate",
+      "run-checks"
+    ],
+    "network_access": "disabled",
+    "elapsed_ms": null,
+    "human_interventions": 0
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  }
+}

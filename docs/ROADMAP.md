@@ -26,13 +26,15 @@ framework.
 - [x] Validate a failing starter and passing reference task
 - [ ] Publish ten synthetic repository tasks
 - [x] Provide deterministic validation scripts
-- [ ] Track success, cost, latency, and human intervention
+- [x] Define success, cost, latency, and human-intervention fields
+- [ ] Publish the first blinded agent attempt with recorded metrics
 
 ## Milestone 4 — Public benchmark
 
 - [ ] Run at least two agent configurations on the same tasks
 - [ ] Publish raw results and failure classifications
-- [ ] Add community-submitted runs with provenance
+- [x] Define provenance rules for recorded and community-submitted runs
+- [ ] Accept the first independently reproduced community run
 - [ ] Document threats to validity
 
 ## Milestone 5 — Integration

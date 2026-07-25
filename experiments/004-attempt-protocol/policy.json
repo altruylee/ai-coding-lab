@@ -1,0 +1,23 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/**",
+    "benchmarks/**",
+    "docs/**",
+    "experiments/003-coding-task-baseline/results.json",
+    "experiments/004-attempt-protocol/**",
+    "tests/test_attempt_runner.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*secret*",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmarks/attempts.py",
+    "tests/test_attempt_runner.py",
+    "experiments/004-attempt-protocol/**"
+  ]
+}

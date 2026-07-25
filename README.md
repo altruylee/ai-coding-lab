@@ -117,11 +117,16 @@ adds verifiable scope, command, output-hash, and integrity evidence.
 adds a synthetic repository task, temporary-workspace runner, failing starter,
 passing reference, and deterministic validation result.
 
+[Experiment 004 — Agent attempt protocol](experiments/004-attempt-protocol/README.md)
+adds provenance-aware candidate replay, declared change boundaries, metric
+fields, and explicit scoreboard eligibility.
+
 ## Repository map
 
 ```text
 agent_scope_guard/   Scope policy engine and command-line interface
 benchmarks/          Synthetic coding-agent tasks and isolated runner
+benchmark_runs/      Candidate overlays and provenance manifests
 examples/            Reproducible example policies
 experiments/         Versioned experiments and evidence artifacts
 tests/               Unit and CLI tests
