@@ -1,0 +1,17 @@
+{
+  "allowed_paths": [
+    "agent_scope_guard/**",
+    "tests/**",
+    "README.md",
+    "docs/**",
+    "examples/**"
+  ],
+  "denied_paths": [
+    ".github/workflows/release.yml",
+    "**/*.pem",
+    "**/*.key"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}
