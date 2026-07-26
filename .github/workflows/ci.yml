@@ -106,6 +106,62 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Task 004 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/004-layered-config-merge
+          --output experiments/009-ten-task-suite/results-task004.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 005 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/005-bounded-retry-schedule
+          --output experiments/009-ten-task-suite/results-task005.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 006 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/006-safe-archive-members
+          --output experiments/009-ten-task-suite/results-task006.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 007 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/007-recursive-placeholder-resolution
+          --output experiments/009-ten-task-suite/results-task007.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 008 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/008-idempotent-event-deduplication
+          --output experiments/009-ten-task-suite/results-task008.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 009 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/009-context-window-selection
+          --output experiments/009-ten-task-suite/results-task009.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 010 benchmark
+        run: >-
+          python -m benchmarks.runner
+          --task benchmarks/tasks/010-non-overlapping-text-edits
+          --output experiments/009-ten-task-suite/results-task010.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -151,5 +207,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/008-deterministic-dependency-task/manifest.json
           --output experiments/008-deterministic-dependency-task/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 009 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/009-ten-task-suite/manifest.json
+          --output experiments/009-ten-task-suite/evidence.json
           --repo-root .
           --verify
