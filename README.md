@@ -137,6 +137,9 @@ adds a graph-planning challenge with stable ordering and deterministic errors.
 [Experiment 009 — Complete ten-task suite](experiments/009-ten-task-suite/README.md)
 expands the benchmark to ten diverse, independently reproducible tasks.
 
+[Experiment 010 — First multi-task blind campaign](experiments/010-first-multitask-blind-campaign/README.md)
+records six isolated attempts across three tasks and preserves one real failure.
+
 ## Repository map
 
 ```text

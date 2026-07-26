@@ -34,12 +34,21 @@ entries, even when their candidate code passes.
 | 002 | [`002-codex-blind-002`](agents/002-codex-blind-002/) | public test descriptions | pass | 149.231 s | 0 |
 | 002 | [`002-codex-spec-only-001`](agents/002-codex-spec-only-001/) | specification only | pass | 169.795 s | 0 |
 | 002 | [`002-codex-spec-only-002`](agents/002-codex-spec-only-002/) | specification only | pass | 163.629 s | 0 |
+| 006 | [`006-codex-spec-only-001`](agents/006-codex-spec-only-001/) | specification only | pass | 151.368 s | 0 |
+| 006 | [`006-codex-public-tests-001`](agents/006-codex-public-tests-001/) | public test descriptions | pass | 179.320 s | 0 |
+| 009 | [`009-codex-spec-only-001`](agents/009-codex-spec-only-001/) | specification only | fail | 182.647 s | 0 |
+| 009 | [`009-codex-public-tests-001`](agents/009-codex-public-tests-001/) | public test descriptions | pass | 179.320 s | 0 |
+| 010 | [`010-codex-spec-only-001`](agents/010-codex-spec-only-001/) | specification only | pass | 196.614 s | 0 |
+| 010 | [`010-codex-public-tests-001`](agents/010-codex-public-tests-001/) | public test descriptions | pass | 205.559 s | 0 |
 
 All four runs used OpenAI Codex with the GPT-5 family disclosure. This is a run
 log, not a model ranking. Token usage and cost were unavailable.
 
 Campaign manifests group repeated attempts without deleting failures. See
 [`task002-prompt-context-001`](campaigns/task002-prompt-context-001/campaign.json).
+Multi-task suite manifests aggregate compatible campaigns while retaining every
+task and attempt. See
+[`first-multitask-prompt-context-001`](suites/first-multitask-prompt-context-001/suite.json).
 
 ## Security boundary
 

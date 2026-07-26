@@ -162,6 +162,38 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Task 006 prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task006-prompt-context-001/campaign.json
+          --output experiments/010-first-multitask-blind-campaign/results-task006.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 009 prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task009-prompt-context-001/campaign.json
+          --output experiments/010-first-multitask-blind-campaign/results-task009.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 010 prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task010-prompt-context-001/campaign.json
+          --output experiments/010-first-multitask-blind-campaign/results-task010.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 010 multi-task suite
+        run: >-
+          python -m benchmarks.suites
+          --suite benchmark_runs/suites/first-multitask-prompt-context-001/suite.json
+          --output experiments/010-first-multitask-blind-campaign/results.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -215,5 +247,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/009-ten-task-suite/manifest.json
           --output experiments/009-ten-task-suite/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 010 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/010-first-multitask-blind-campaign/manifest.json
+          --output experiments/010-first-multitask-blind-campaign/evidence.json
           --repo-root .
           --verify

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "campaign_id": "task010-prompt-context-001",
+  "campaign_manifest": {
+    "path": "benchmark_runs/campaigns/task010-prompt-context-001/campaign.json",
+    "sha256": "8af567b130f58cf1fa7e2ab990c3d26a7739ab78196c91f4bb3c84519254adf0"
+  },
+  "task": {
+    "path": "benchmarks/tasks/010-non-overlapping-text-edits",
+    "sha256": "32ab1d1da9801b783a8e2195ffa6eedc80938bd35a7d1268ee603eb82e447d73"
+  },
+  "attempts": [
+    {
+      "attempt_id": "010-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "ed019a259fd55dbbe574dcf5872350d12ff806d074054afe302af6c42f915a4e",
+      "candidate_sha256": "dcd26852ebc034118976c56d029f6a4d77e34d01b3596a4b2529c56e3ad9146f",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 196614,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "010-codex-public-tests-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "7d426b175bde469ff2a158d5e6ef698384238d03ec8309af256e8b7db24b1015",
+      "candidate_sha256": "77f78538ea00e80c80c6d0febbb460b55d3f1f3333bfca764b76f94f6d67d98d",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 205559,
+      "human_interventions": 0,
+      "usage_complete": false
+    }
+  ],
+  "configurations": [
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions",
+      "summary": {
+        "attempts": 1,
+        "solved": 1,
+        "scoreboard_eligible": 1,
+        "elapsed_ms": {
+          "values": [
+            196614
+          ],
+          "median": 196614,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests",
+      "summary": {
+        "attempts": 1,
+        "solved": 1,
+        "scoreboard_eligible": 1,
+        "elapsed_ms": {
+          "values": [
+            205559
+          ],
+          "median": 205559,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    }
+  ],
+  "summary": {
+    "attempts": 2,
+    "solved": 2,
+    "scoreboard_eligible": 2,
+    "elapsed_ms": {
+      "values": [
+        196614,
+        205559
+      ],
+      "median": 201086.5,
+      "missing": 0
+    },
+    "human_interventions": 0,
+    "usage_complete": 0
+  }
+}

@@ -78,3 +78,16 @@ python -m benchmarks.campaigns \
 Campaign results retain every declared attempt and report integer success
 counts, original elapsed values, median latency, interventions, and missing
 usage data per configuration.
+
+## Aggregate compatible tasks
+
+```bash
+python -m benchmarks.suites \
+  --suite benchmark_runs/suites/first-multitask-prompt-context-001/suite.json \
+  --output experiments/010-first-multitask-blind-campaign/results.json \
+  --repo-root . \
+  --verify
+```
+
+Suite results require every campaign to declare the same configuration IDs and
+descriptions. They preserve raw per-task attempts before reporting totals.
