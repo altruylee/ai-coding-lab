@@ -140,6 +140,10 @@ expands the benchmark to ten diverse, independently reproducible tasks.
 [Experiment 010 — First multi-task blind campaign](experiments/010-first-multitask-blind-campaign/README.md)
 records six isolated attempts across three tasks and preserves one real failure.
 
+[Experiment 011 — Repeated multi-task campaign](experiments/011-repeated-multitask-campaign/README.md)
+expands the comparison to 12 primary attempts and isolates a prompt-contract
+confound.
+
 ## Repository map
 
 ```text
@@ -172,7 +176,8 @@ The first milestones are:
 - cost, latency, and failure-mode reporting.
 
 See [the roadmap](docs/ROADMAP.md) and
-[experiment protocol](docs/EXPERIMENTS.md).
+[experiment protocol](docs/EXPERIMENTS.md). Interpretation limits are recorded
+in [threats to validity](docs/THREATS_TO_VALIDITY.md).
 
 ## 中文说明
 

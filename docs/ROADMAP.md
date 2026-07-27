@@ -35,7 +35,7 @@ framework.
 - [x] Publish raw results and failure classifications
 - [x] Define provenance rules for recorded and community-submitted runs
 - [ ] Accept the first independently reproduced community run
-- [ ] Document threats to validity
+- [x] Document threats to validity
 
 ## Milestone 5 — Integration
 

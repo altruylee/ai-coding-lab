@@ -1,0 +1,151 @@
+{
+  "task_id": "experiment-011-repeated-multitask-campaign",
+  "policy_path": "experiments/011-repeated-multitask-campaign/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/006-codex-public-tests-002/candidate/archive_paths.py",
+    "benchmark_runs/agents/006-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/006-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/006-codex-spec-only-002/candidate/archive_paths.py",
+    "benchmark_runs/agents/009-codex-error-contract-001/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-error-contract-001/PROMPT.md",
+    "benchmark_runs/agents/009-codex-error-contract-001/attempt.json",
+    "benchmark_runs/agents/009-codex-error-contract-001/candidate/context_window.py",
+    "benchmark_runs/agents/009-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/009-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/009-codex-public-tests-002/candidate/context_window.py",
+    "benchmark_runs/agents/009-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/009-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/009-codex-spec-only-002/candidate/context_window.py",
+    "benchmark_runs/agents/010-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/010-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/010-codex-public-tests-002/candidate/text_edits.py",
+    "benchmark_runs/agents/010-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/010-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/010-codex-spec-only-002/candidate/text_edits.py",
+    "benchmark_runs/campaigns/task006-prompt-context-002/campaign.json",
+    "benchmark_runs/campaigns/task009-prompt-context-002/campaign.json",
+    "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json",
+    "benchmark_runs/suites/repeated-multitask-prompt-context-001/suite.json",
+    "docs/ROADMAP.md",
+    "docs/THREATS_TO_VALIDITY.md",
+    "experiments/011-repeated-multitask-campaign/README.md",
+    "experiments/011-repeated-multitask-campaign/evidence.json",
+    "experiments/011-repeated-multitask-campaign/manifest.json",
+    "experiments/011-repeated-multitask-campaign/policy.json",
+    "experiments/011-repeated-multitask-campaign/results-task006.json",
+    "experiments/011-repeated-multitask-campaign/results-task009-error-contract.json",
+    "experiments/011-repeated-multitask-campaign/results-task009.json",
+    "experiments/011-repeated-multitask-campaign/results-task010.json",
+    "experiments/011-repeated-multitask-campaign/results.json",
+    "tests/test_suite_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "task-006-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task006-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task006.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-009-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task009-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task009.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-010-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task010.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "repeated-multi-task-suite",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.suites",
+        "--suite",
+        "benchmark_runs/suites/repeated-multitask-prompt-context-001/suite.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-009-error-contract-deviation",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/agents/009-codex-error-contract-001/attempt.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task009-error-contract.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-010-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.suites",
+        "--suite",
+        "benchmark_runs/suites/first-multitask-prompt-context-001/suite.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "campaign_id": "task010-prompt-context-002",
+  "campaign_manifest": {
+    "path": "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json",
+    "sha256": "bf458c859676b96d7e5cddab8518b47bfa278a194a5a8f25bd06798c126f911b"
+  },
+  "task": {
+    "path": "benchmarks/tasks/010-non-overlapping-text-edits",
+    "sha256": "32ab1d1da9801b783a8e2195ffa6eedc80938bd35a7d1268ee603eb82e447d73"
+  },
+  "attempts": [
+    {
+      "attempt_id": "010-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "ed019a259fd55dbbe574dcf5872350d12ff806d074054afe302af6c42f915a4e",
+      "candidate_sha256": "dcd26852ebc034118976c56d029f6a4d77e34d01b3596a4b2529c56e3ad9146f",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 196614,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "010-codex-spec-only-002",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "e0b27148516a9d18b700b9a513e4b1bce1a06797590e0b4b81dd5fe64d7aaabf",
+      "candidate_sha256": "8059986a0b7ca3f21b79f38b92e560731959bde95f957148c7495ba5b029a585",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 204532,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "010-codex-public-tests-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "7d426b175bde469ff2a158d5e6ef698384238d03ec8309af256e8b7db24b1015",
+      "candidate_sha256": "77f78538ea00e80c80c6d0febbb460b55d3f1f3333bfca764b76f94f6d67d98d",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 205559,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "attempt_id": "010-codex-public-tests-002",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "1fa2c111ad40b6ee5685facbae0edf958942380f5fc2cd3ec346f224a4b379c7",
+      "candidate_sha256": "b444ef59642326f71d2958c0049b56598c77f0b45e765e0b5388b4c0d7045891",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 299918,
+      "human_interventions": 0,
+      "usage_complete": false
+    }
+  ],
+  "configurations": [
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions",
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            196614,
+            204532
+          ],
+          "median": 200573.0,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests",
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            205559,
+            299918
+          ],
+          "median": 252738.5,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    }
+  ],
+  "summary": {
+    "attempts": 4,
+    "solved": 4,
+    "scoreboard_eligible": 4,
+    "elapsed_ms": {
+      "values": [
+        196614,
+        204532,
+        205559,
+        299918
+      ],
+      "median": 205045.5,
+      "missing": 0
+    },
+    "human_interventions": 0,
+    "usage_complete": 0
+  }
+}
