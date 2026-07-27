@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "suite_id": "repeated-multitask-prompt-context-001",
+  "campaigns": [
+    {
+      "id": "task006",
+      "campaign": "benchmark_runs/campaigns/task006-prompt-context-002/campaign.json"
+    },
+    {
+      "id": "task009",
+      "campaign": "benchmark_runs/campaigns/task009-prompt-context-002/campaign.json"
+    },
+    {
+      "id": "task010",
+      "campaign": "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json"
+    }
+  ]
+}

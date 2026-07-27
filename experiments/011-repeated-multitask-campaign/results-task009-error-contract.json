@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "attempt_id": "009-codex-error-contract-001",
+  "attempt_manifest": {
+    "path": "benchmark_runs/agents/009-codex-error-contract-001/attempt.json",
+    "sha256": "c0a291febd8f2cc65b8c6c2e01d8d779cac2195ea947d6069fc0d052b39f0474"
+  },
+  "task": {
+    "path": "benchmarks/tasks/009-context-window-selection",
+    "sha256": "666482b45f31e15d78316fa542a20740426827bf827546ed96e3724291cd32f1"
+  },
+  "candidate": {
+    "path": "benchmark_runs/agents/009-codex-error-contract-001/candidate",
+    "sha256": "3ceca2420d98d74371339d80b6c95830b921ceee2298a20ced2853af78e3a9a1",
+    "changed_paths": [
+      "context_window.py"
+    ]
+  },
+  "provenance": {
+    "kind": "agent",
+    "agent_name": "OpenAI Codex",
+    "agent_version": null,
+    "model": "GPT-5 family (exact deployment not exposed)",
+    "reference_access": false
+  },
+  "execution": {
+    "permissions": [
+      "read-supplied-prompt",
+      "return-candidate-text"
+    ],
+    "network_access": "disabled",
+    "elapsed_ms": 204532,
+    "human_interventions": 0
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "solved": true,
+    "observed": "pass",
+    "scoreboard_eligible": true,
+    "usage_complete": false
+  },
+  "artifacts": [
+    {
+      "name": "prompt",
+      "path": "benchmark_runs/agents/009-codex-error-contract-001/PROMPT.md",
+      "sha256": "ace5fb5188f0e870463c11506edab4fab1df0d39943c9e2e14be45f1616193bf"
+    },
+    {
+      "name": "attestation",
+      "path": "benchmark_runs/agents/009-codex-error-contract-001/ATTESTATION.md",
+      "sha256": "946126711374ca4e7494c5d1ce74188665036306c63b5b2c8b3ef49dc35813f9"
+    }
+  ]
+}

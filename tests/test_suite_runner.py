@@ -22,6 +22,11 @@ class SuiteRunnerTests(unittest.TestCase):
             / "benchmark_runs/suites/first-multitask-prompt-context-001"
             / "suite.json"
         )
+        cls.repeated_suite = (
+            cls.repository_root
+            / "benchmark_runs/suites/repeated-multitask-prompt-context-001"
+            / "suite.json"
+        )
 
     def test_recorded_suite_replays_all_attempts(self) -> None:
         result = build_suite_result(self.suite, self.repository_root)
@@ -48,6 +53,35 @@ class SuiteRunnerTests(unittest.TestCase):
         )
 
         self.assertEqual(first, second)
+
+    def test_repeated_suite_keeps_both_runs_per_configuration(self) -> None:
+        result = build_suite_result(
+            self.repeated_suite,
+            self.repository_root,
+        )
+
+        self.assertEqual(result["summary"]["attempts"], 12)
+        self.assertEqual(result["summary"]["solved"], 10)
+        solved_by_configuration = {
+            configuration["id"]: configuration["summary"]["solved"]
+            for configuration in result["configurations"]
+        }
+        attempts_by_configuration = {
+            configuration["id"]: configuration["summary"]["attempts"]
+            for configuration in result["configurations"]
+        }
+        self.assertEqual(
+            solved_by_configuration,
+            {"spec-only": 4, "public-test-descriptions": 6},
+        )
+        self.assertEqual(
+            attempts_by_configuration,
+            {"spec-only": 6, "public-test-descriptions": 6},
+        )
+        attempt_ids = {
+            attempt["attempt_id"] for attempt in result["attempts"]
+        }
+        self.assertNotIn("009-codex-error-contract-001", attempt_ids)
 
     def test_duplicate_campaign_path_is_rejected(self) -> None:
         suite = {

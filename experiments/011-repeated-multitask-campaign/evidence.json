@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-011-repeated-multitask-campaign",
+  "manifest": {
+    "path": "experiments/011-repeated-multitask-campaign/manifest.json",
+    "sha256": "8c547c784af3e56e1e715e4212e759df54fd5b187bf4abe25d9258fd21292557"
+  },
+  "policy": {
+    "path": "experiments/011-repeated-multitask-campaign/policy.json",
+    "sha256": "bd17aba538fb4fbb113120b65bade1a84f73a47ee824aaad227413fef8a907da"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/006-codex-public-tests-002/candidate/archive_paths.py",
+    "benchmark_runs/agents/006-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/006-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/006-codex-spec-only-002/candidate/archive_paths.py",
+    "benchmark_runs/agents/009-codex-error-contract-001/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-error-contract-001/PROMPT.md",
+    "benchmark_runs/agents/009-codex-error-contract-001/attempt.json",
+    "benchmark_runs/agents/009-codex-error-contract-001/candidate/context_window.py",
+    "benchmark_runs/agents/009-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/009-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/009-codex-public-tests-002/candidate/context_window.py",
+    "benchmark_runs/agents/009-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/009-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/009-codex-spec-only-002/candidate/context_window.py",
+    "benchmark_runs/agents/010-codex-public-tests-002/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-public-tests-002/PROMPT.md",
+    "benchmark_runs/agents/010-codex-public-tests-002/attempt.json",
+    "benchmark_runs/agents/010-codex-public-tests-002/candidate/text_edits.py",
+    "benchmark_runs/agents/010-codex-spec-only-002/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-spec-only-002/PROMPT.md",
+    "benchmark_runs/agents/010-codex-spec-only-002/attempt.json",
+    "benchmark_runs/agents/010-codex-spec-only-002/candidate/text_edits.py",
+    "benchmark_runs/campaigns/task006-prompt-context-002/campaign.json",
+    "benchmark_runs/campaigns/task009-prompt-context-002/campaign.json",
+    "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json",
+    "benchmark_runs/suites/repeated-multitask-prompt-context-001/suite.json",
+    "docs/ROADMAP.md",
+    "docs/THREATS_TO_VALIDITY.md",
+    "experiments/011-repeated-multitask-campaign/README.md",
+    "experiments/011-repeated-multitask-campaign/evidence.json",
+    "experiments/011-repeated-multitask-campaign/manifest.json",
+    "experiments/011-repeated-multitask-campaign/policy.json",
+    "experiments/011-repeated-multitask-campaign/results-task006.json",
+    "experiments/011-repeated-multitask-campaign/results-task009-error-contract.json",
+    "experiments/011-repeated-multitask-campaign/results-task009.json",
+    "experiments/011-repeated-multitask-campaign/results-task010.json",
+    "experiments/011-repeated-multitask-campaign/results.json",
+    "tests/test_suite_runner.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "task-006-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task006-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task006.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e01341827c9e8e8bf7880276195f352beeba4d94ed36994e99e0a741d26ea3bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "task-009-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task009-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task009.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e01341827c9e8e8bf7880276195f352beeba4d94ed36994e99e0a741d26ea3bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "task-010-repeated-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task010-prompt-context-002/campaign.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task010.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e01341827c9e8e8bf7880276195f352beeba4d94ed36994e99e0a741d26ea3bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "repeated-multi-task-suite",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.suites",
+        "--suite",
+        "benchmark_runs/suites/repeated-multitask-prompt-context-001/suite.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "100c04894cb769bfbc4eaf8648d655748935374baf31be16db56b35ba0eaca1d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "task-009-error-contract-deviation",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.attempts",
+        "--attempt",
+        "benchmark_runs/agents/009-codex-error-contract-001/attempt.json",
+        "--output",
+        "experiments/011-repeated-multitask-campaign/results-task009-error-contract.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "a49a511e5b9b6039d9d67c1d731ed8905bd8f01c9a9f0d7a32a53fefdd83fbcc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-010-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.suites",
+        "--suite",
+        "benchmark_runs/suites/first-multitask-prompt-context-001/suite.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "100c04894cb769bfbc4eaf8648d655748935374baf31be16db56b35ba0eaca1d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 6,
+    "checks_passed": 6,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "94b224a3748aeeac9f94a4b2d6bdce197fc5ccfa41ef31db49a1df770a1e7df3"
+}

@@ -194,6 +194,46 @@ jobs:
           --repo-root .
           --verify
 
+      - name: Reproduce Task 006 repeated prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task006-prompt-context-002/campaign.json
+          --output experiments/011-repeated-multitask-campaign/results-task006.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 009 repeated prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task009-prompt-context-002/campaign.json
+          --output experiments/011-repeated-multitask-campaign/results-task009.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 010 repeated prompt campaign
+        run: >-
+          python -m benchmarks.campaigns
+          --campaign benchmark_runs/campaigns/task010-prompt-context-002/campaign.json
+          --output experiments/011-repeated-multitask-campaign/results-task010.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 011 repeated suite
+        run: >-
+          python -m benchmarks.suites
+          --suite benchmark_runs/suites/repeated-multitask-prompt-context-001/suite.json
+          --output experiments/011-repeated-multitask-campaign/results.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Task 009 error-contract deviation
+        run: >-
+          python -m benchmarks.attempts
+          --attempt benchmark_runs/agents/009-codex-error-contract-001/attempt.json
+          --output experiments/011-repeated-multitask-campaign/results-task009-error-contract.json
+          --repo-root .
+          --verify
+
       - name: Reproduce Experiment 003 evidence
         run: >-
           python -m agent_scope_guard evidence
@@ -255,5 +295,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/010-first-multitask-blind-campaign/manifest.json
           --output experiments/010-first-multitask-blind-campaign/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 011 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/011-repeated-multitask-campaign/manifest.json
+          --output experiments/011-repeated-multitask-campaign/evidence.json
           --repo-root .
           --verify

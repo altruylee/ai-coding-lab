@@ -40,6 +40,13 @@ entries, even when their candidate code passes.
 | 009 | [`009-codex-public-tests-001`](agents/009-codex-public-tests-001/) | public test descriptions | pass | 179.320 s | 0 |
 | 010 | [`010-codex-spec-only-001`](agents/010-codex-spec-only-001/) | specification only | pass | 196.614 s | 0 |
 | 010 | [`010-codex-public-tests-001`](agents/010-codex-public-tests-001/) | public test descriptions | pass | 205.559 s | 0 |
+| 006 | [`006-codex-spec-only-002`](agents/006-codex-spec-only-002/) | specification only | pass | 166.603 s | 0 |
+| 006 | [`006-codex-public-tests-002`](agents/006-codex-public-tests-002/) | public test descriptions | pass | 254.642 s | 0 |
+| 009 | [`009-codex-spec-only-002`](agents/009-codex-spec-only-002/) | specification only | fail | 177.175 s | 0 |
+| 009 | [`009-codex-public-tests-002`](agents/009-codex-public-tests-002/) | public test descriptions | pass | 254.642 s | 0 |
+| 009 | [`009-codex-error-contract-001`](agents/009-codex-error-contract-001/) | clarified error contract; excluded from primary suite | pass | 204.532 s | 0 |
+| 010 | [`010-codex-spec-only-002`](agents/010-codex-spec-only-002/) | specification only | pass | 204.532 s | 0 |
+| 010 | [`010-codex-public-tests-002`](agents/010-codex-public-tests-002/) | public test descriptions | pass | 299.918 s | 0 |
 
 All four runs used OpenAI Codex with the GPT-5 family disclosure. This is a run
 log, not a model ranking. Token usage and cost were unavailable.
@@ -49,6 +56,10 @@ Campaign manifests group repeated attempts without deleting failures. See
 Multi-task suite manifests aggregate compatible campaigns while retaining every
 task and attempt. See
 [`first-multitask-prompt-context-001`](suites/first-multitask-prompt-context-001/suite.json).
+The repeated primary comparison is
+[`repeated-multitask-prompt-context-001`](suites/repeated-multitask-prompt-context-001/suite.json).
+The clarified Task 009 run is retained but excluded because its prompt differs
+from the declared primary configurations.
 
 ## Security boundary
 

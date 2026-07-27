@@ -1,0 +1,35 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/006-codex-public-tests-002/**",
+    "benchmark_runs/agents/006-codex-spec-only-002/**",
+    "benchmark_runs/agents/009-codex-error-contract-001/**",
+    "benchmark_runs/agents/009-codex-public-tests-002/**",
+    "benchmark_runs/agents/009-codex-spec-only-002/**",
+    "benchmark_runs/agents/010-codex-public-tests-002/**",
+    "benchmark_runs/agents/010-codex-spec-only-002/**",
+    "benchmark_runs/campaigns/task006-prompt-context-002/**",
+    "benchmark_runs/campaigns/task009-prompt-context-002/**",
+    "benchmark_runs/campaigns/task010-prompt-context-002/**",
+    "benchmark_runs/suites/repeated-multitask-prompt-context-001/**",
+    "docs/ROADMAP.md",
+    "docs/THREATS_TO_VALIDITY.md",
+    "experiments/011-repeated-multitask-campaign/**",
+    "tests/test_suite_runner.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "benchmark_runs/agents/**",
+    "benchmark_runs/campaigns/**",
+    "benchmark_runs/suites/**",
+    "docs/THREATS_TO_VALIDITY.md",
+    "experiments/011-repeated-multitask-campaign/**",
+    "tests/test_suite_runner.py"
+  ]
+}
