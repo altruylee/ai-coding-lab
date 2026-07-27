@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-014-mcp-scope-adapter",
+  "manifest": {
+    "path": "experiments/014-mcp-scope-adapter/manifest.json",
+    "sha256": "6b772b62de9aaeb94ebc4d13f2a80f0c47ed7bf720afa05246012fcdde0ee9f9"
+  },
+  "policy": {
+    "path": "experiments/014-mcp-scope-adapter/policy.json",
+    "sha256": "bff555c865c24f6bd3445b276b2d6c195fb46d88d9ff2b1f0189c8834c85e0c4"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "agent_scope_guard/mcp_server.py",
+    "docs/MCP_ADAPTER.md",
+    "docs/ROADMAP.md",
+    "examples/mcp/policy.json",
+    "examples/mcp/server-config.json",
+    "experiments/014-mcp-scope-adapter/README.md",
+    "experiments/014-mcp-scope-adapter/evidence.json",
+    "experiments/014-mcp-scope-adapter/manifest.json",
+    "experiments/014-mcp-scope-adapter/policy.json",
+    "pyproject.toml",
+    "scripts/verify_mcp_adapter.py",
+    "tests/test_mcp_server.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "mcp-adapter-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_mcp_adapter.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "2a913b4d042f239d1577133d3448099e7d84cc1252981b56702f05f1b92a4298",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "mcp-adapter-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_mcp_server.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-013-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/013-pre-commit-integration/manifest.json",
+        "--output",
+        "experiments/013-pre-commit-integration/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "bece5bfec9fde85bfb589ca2217453da3877d0ad5f9068fb15914bd4e33cb205",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 3,
+    "checks_passed": 3,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "34e9aea31a100736dc855bd655c3e6bd453631dcea10eb91219e480ef0b2d881"
+}

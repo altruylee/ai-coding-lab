@@ -100,6 +100,28 @@ repos:
 See the [pre-commit integration guide](docs/PRE_COMMIT.md) for installation,
 pinning guidance, staged-file semantics, and known rename/deletion limits.
 
+## MCP adapter
+
+Give an MCP-capable coding agent a read-only scope check before it edits or
+proposes a change:
+
+```json
+{
+  "mcpServers": {
+    "agent-scope-guard": {
+      "command": "agent-scope-guard-mcp",
+      "args": ["--repo-root", "/absolute/path/to/repository"]
+    }
+  }
+}
+```
+
+The adapter exposes explicit-path and local Git-diff tools. It reads only the
+selected policy and Git path names; it does not read source contents, access
+the network, mutate files, or replace human approval. See the
+[MCP adapter guide](docs/MCP_ADAPTER.md) for installation, tool contracts,
+safety boundaries, and protocol limitations.
+
 ## Task evidence bundles
 
 Version 0.2.0 can run verification commands declared in a reviewed manifest
@@ -184,6 +206,10 @@ against allowed and denied synthetic Git histories.
 [Experiment 013 — pre-commit integration](experiments/013-pre-commit-integration/README.md)
 adds a packaged staged-path hook and verifies allowed, denied, incomplete, and
 unsafe configurations.
+
+[Experiment 014 — MCP scope adapter](experiments/014-mcp-scope-adapter/README.md)
+adds two read-only MCP tools and verifies protocol framing, explicit paths,
+local Git diffs, policy violations, and unsafe configuration failures.
 
 ## Repository map
 

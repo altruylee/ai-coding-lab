@@ -41,5 +41,5 @@ framework.
 
 - [x] GitHub Actions example
 - [x] Pre-commit integration
-- [ ] MCP or agent-tool adapter
+- [x] MCP or agent-tool adapter
 - [ ] Reference workflow with explicit human approval gates

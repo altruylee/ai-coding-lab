@@ -1,0 +1,15 @@
+{
+  "allowed_paths": [
+    "src/**",
+    "tests/**",
+    "README.md"
+  ],
+  "denied_paths": [
+    ".github/workflows/release.yml",
+    "**/*.key",
+    "**/*.pem"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}
