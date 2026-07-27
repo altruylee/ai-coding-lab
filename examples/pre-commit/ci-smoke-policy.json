@@ -1,0 +1,14 @@
+{
+  "allowed_paths": [
+    "agent_scope_guard/**",
+    "tests/**"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}

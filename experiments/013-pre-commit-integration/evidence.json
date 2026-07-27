@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-013-pre-commit-integration",
+  "manifest": {
+    "path": "experiments/013-pre-commit-integration/manifest.json",
+    "sha256": "97fc131175f2d367a1b328e3873d4bd1eb5ba9b43dc5051ac82769720e2dc8aa"
+  },
+  "policy": {
+    "path": "experiments/013-pre-commit-integration/policy.json",
+    "sha256": "6ff0ebdcf7c0023e47e762e3b65c6b84a076049a5814cc9af8b083a0591cfc2c"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    ".pre-commit-hooks.yaml",
+    "README.md",
+    "agent_scope_guard/pre_commit.py",
+    "docs/PRE_COMMIT.md",
+    "docs/ROADMAP.md",
+    "examples/pre-commit/ci-smoke-policy.json",
+    "examples/pre-commit/config.yaml",
+    "examples/pre-commit/policy.json",
+    "experiments/013-pre-commit-integration/README.md",
+    "experiments/013-pre-commit-integration/evidence.json",
+    "experiments/013-pre-commit-integration/manifest.json",
+    "experiments/013-pre-commit-integration/policy.json",
+    "pyproject.toml",
+    "scripts/verify_pre_commit.py",
+    "tests/test_pre_commit.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "pre-commit-integration-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_pre_commit.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "af2e7dd31f0e45dd7acf722fc4c216e31da3c62277a7fcf5a7cb5c1075236f4b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "pre-commit-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_pre_commit.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-012-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/012-github-action-integration/manifest.json",
+        "--output",
+        "experiments/012-github-action-integration/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "bece5bfec9fde85bfb589ca2217453da3877d0ad5f9068fb15914bd4e33cb205",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 3,
+    "checks_passed": 3,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "1fce50f79ba38c713140bf85b9410b584f52cdf6f1ba503b58290c69fcd0c52a"
+}

@@ -1,0 +1,30 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    ".pre-commit-hooks.yaml",
+    "README.md",
+    "agent_scope_guard/pre_commit.py",
+    "docs/PRE_COMMIT.md",
+    "docs/ROADMAP.md",
+    "examples/pre-commit/**",
+    "experiments/013-pre-commit-integration/**",
+    "pyproject.toml",
+    "scripts/verify_pre_commit.py",
+    "tests/test_pre_commit.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    ".pre-commit-hooks.yaml",
+    "agent_scope_guard/pre_commit.py",
+    "docs/PRE_COMMIT.md",
+    "examples/pre-commit/**",
+    "experiments/013-pre-commit-integration/**",
+    "pyproject.toml",
+    "scripts/verify_pre_commit.py",
+    "tests/test_pre_commit.py"
+  ]
+}

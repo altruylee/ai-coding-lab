@@ -1,0 +1,9 @@
+repos:
+  - repo: https://github.com/altruylee/ai-coding-lab
+    # Replace main with a reviewed full commit SHA in production.
+    rev: main
+    hooks:
+      - id: agent-scope-guard
+        args:
+          - --policy
+          - .github/agent-scope-policy.json
