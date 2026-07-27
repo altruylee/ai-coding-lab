@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-012-github-action-integration",
+  "manifest": {
+    "path": "experiments/012-github-action-integration/manifest.json",
+    "sha256": "e406d9cff31f29ed0ac77c590120f25498bb34362ffc99af2412034c5bafe5a9"
+  },
+  "policy": {
+    "path": "experiments/012-github-action-integration/policy.json",
+    "sha256": "06e9643bf0a052c5ba761f100b5c60b55addc56e1610753bfda198091881764d"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "action.yml",
+    "docs/GITHUB_ACTION.md",
+    "docs/ROADMAP.md",
+    "examples/github-actions/ci-smoke-policy.json",
+    "examples/github-actions/policy.json",
+    "examples/github-actions/scope-check.yml",
+    "experiments/012-github-action-integration/README.md",
+    "experiments/012-github-action-integration/evidence.json",
+    "experiments/012-github-action-integration/manifest.json",
+    "experiments/012-github-action-integration/policy.json",
+    "scripts/github_action.py",
+    "scripts/verify_github_action.py",
+    "tests/test_github_action.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "github-action-integration-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_github_action.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "f6467697770d0b8aeb01ffee5160493900f6e48a31d2123525044fa4c042c2b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "github-action-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_github_action.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 2,
+    "checks_passed": 2,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "49313d6261e240a252237765925b54ad488a97e48aef1e4cf6a0960ba76a30e8"
+}

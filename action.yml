@@ -1,0 +1,35 @@
+name: Agent Scope Guard
+description: Fail a pull request when AI coding changes leave declared file boundaries.
+author: altruylee
+
+inputs:
+  policy:
+    description: Repository-relative path to an Agent Scope Guard JSON policy.
+    required: true
+  base_ref:
+    description: Git revision used as the merge-base side of the comparison.
+    required: true
+  head_ref:
+    description: Git revision containing the proposed changes.
+    required: false
+    default: HEAD
+  output_format:
+    description: Result format, either text or json.
+    required: false
+    default: text
+
+runs:
+  using: composite
+  steps:
+    - name: Check changed-file scope
+      shell: bash
+      env:
+        AGENT_SCOPE_POLICY: ${{ inputs.policy }}
+        AGENT_SCOPE_BASE_REF: ${{ inputs.base_ref }}
+        AGENT_SCOPE_HEAD_REF: ${{ inputs.head_ref }}
+        AGENT_SCOPE_OUTPUT_FORMAT: ${{ inputs.output_format }}
+      run: python "$GITHUB_ACTION_PATH/scripts/github_action.py"
+
+branding:
+  icon: shield
+  color: blue

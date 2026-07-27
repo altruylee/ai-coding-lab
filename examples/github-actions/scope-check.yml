@@ -1,0 +1,29 @@
+name: Agent scope
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  scope:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Pin this action to a full commit SHA in security-sensitive repositories.
+      - name: Enforce coding-agent scope
+        uses: altruylee/ai-coding-lab@main
+        with:
+          policy: .github/agent-scope-policy.json
+          base_ref: ${{ github.event.pull_request.base.sha }}
+          head_ref: ${{ github.event.pull_request.head.sha }}

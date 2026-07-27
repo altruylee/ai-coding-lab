@@ -67,6 +67,23 @@ A successful check exits with code `0`. A scope violation exits with code `1`
 and explains which rule failed. Invalid configuration or Git errors exit with
 code `2`.
 
+## GitHub Action
+
+Use Agent Scope Guard directly in a pull-request workflow:
+
+```yaml
+- name: Enforce coding-agent scope
+  uses: altruylee/ai-coding-lab@main
+  with:
+    policy: .github/agent-scope-policy.json
+    base_ref: ${{ github.event.pull_request.base.sha }}
+    head_ref: ${{ github.event.pull_request.head.sha }}
+```
+
+The checkout must include both revisions (`fetch-depth: 0`). See the
+[complete GitHub Action guide](docs/GITHUB_ACTION.md) for the policy, workflow,
+least-privilege permissions, commit-pinning guidance, and limitations.
+
 ## Task evidence bundles
 
 Version 0.2.0 can run verification commands declared in a reviewed manifest
@@ -144,10 +161,15 @@ records six isolated attempts across three tasks and preserves one real failure.
 expands the comparison to 12 primary attempts and isolates a prompt-contract
 confound.
 
+[Experiment 012 — GitHub Action integration](experiments/012-github-action-integration/README.md)
+turns the scope checker into a reusable pull-request guard and validates it
+against allowed and denied synthetic Git histories.
+
 ## Repository map
 
 ```text
 agent_scope_guard/   Scope policy engine and command-line interface
+action.yml           Reusable composite GitHub Action
 benchmarks/          Synthetic coding-agent tasks and isolated runner
 benchmark_runs/      Candidate overlays and provenance manifests
 examples/            Reproducible example policies
