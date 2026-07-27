@@ -25,6 +25,7 @@ dependencies = []
 [project.scripts]
 agent-scope-guard = "agent_scope_guard.cli:main"
 agent-scope-guard-pre-commit = "agent_scope_guard.pre_commit:main"
+agent-scope-guard-mcp = "agent_scope_guard.mcp_server:main"
 
 [project.urls]
 Homepage = "https://github.com/altruylee/ai-coding-lab"

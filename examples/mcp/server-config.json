@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "agent-scope-guard": {
+      "command": "agent-scope-guard-mcp",
+      "args": [
+        "--repo-root",
+        "/absolute/path/to/repository"
+      ]
+    }
+  }
+}

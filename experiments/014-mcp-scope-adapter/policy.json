@@ -1,0 +1,28 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "agent_scope_guard/mcp_server.py",
+    "docs/MCP_ADAPTER.md",
+    "docs/ROADMAP.md",
+    "examples/mcp/**",
+    "experiments/014-mcp-scope-adapter/**",
+    "pyproject.toml",
+    "scripts/verify_mcp_adapter.py",
+    "tests/test_mcp_server.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "agent_scope_guard/mcp_server.py",
+    "docs/MCP_ADAPTER.md",
+    "examples/mcp/**",
+    "experiments/014-mcp-scope-adapter/**",
+    "pyproject.toml",
+    "scripts/verify_mcp_adapter.py",
+    "tests/test_mcp_server.py"
+  ]
+}

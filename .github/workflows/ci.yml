@@ -51,6 +51,9 @@ jobs:
           agent_scope_guard/pre_commit.py
           tests/test_pre_commit.py
 
+      - name: Exercise MCP stdio adapter
+        run: python scripts/verify_mcp_adapter.py
+
       - name: Exercise scope policy
         run: >-
           python -m agent_scope_guard check
@@ -336,5 +339,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/013-pre-commit-integration/manifest.json
           --output experiments/013-pre-commit-integration/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 014 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/014-mcp-scope-adapter/manifest.json
+          --output experiments/014-mcp-scope-adapter/evidence.json
           --repo-root .
           --verify

@@ -1,0 +1,60 @@
+{
+  "task_id": "experiment-014-mcp-scope-adapter",
+  "policy_path": "experiments/014-mcp-scope-adapter/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "agent_scope_guard/mcp_server.py",
+    "docs/MCP_ADAPTER.md",
+    "docs/ROADMAP.md",
+    "examples/mcp/policy.json",
+    "examples/mcp/server-config.json",
+    "experiments/014-mcp-scope-adapter/README.md",
+    "experiments/014-mcp-scope-adapter/evidence.json",
+    "experiments/014-mcp-scope-adapter/manifest.json",
+    "experiments/014-mcp-scope-adapter/policy.json",
+    "pyproject.toml",
+    "scripts/verify_mcp_adapter.py",
+    "tests/test_mcp_server.py"
+  ],
+  "checks": [
+    {
+      "name": "mcp-adapter-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_mcp_adapter.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "mcp-adapter-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_mcp_server.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-013-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/013-pre-commit-integration/manifest.json",
+        "--output",
+        "experiments/013-pre-commit-integration/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}
