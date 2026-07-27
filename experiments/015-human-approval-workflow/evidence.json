@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "tool": {
+    "name": "agent-scope-guard",
+    "version": "0.2.0"
+  },
+  "task_id": "experiment-015-human-approval-workflow",
+  "manifest": {
+    "path": "experiments/015-human-approval-workflow/manifest.json",
+    "sha256": "aad552b8e90d3c12dc3d962c6f3d5bbf4b78bd59d45b771e8bf87c3eb7e2a690"
+  },
+  "policy": {
+    "path": "experiments/015-human-approval-workflow/policy.json",
+    "sha256": "dc1b8b44936f948f503dee587a4c6259291c4efa255453ed3f144ef79e6dec76"
+  },
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/human-approved-agent.yml",
+    "README.md",
+    "agent_scope_guard/approval.py",
+    "docs/HUMAN_APPROVAL_WORKFLOW.md",
+    "docs/ROADMAP.md",
+    "examples/approval-gate/policy.json",
+    "experiments/015-human-approval-workflow/README.md",
+    "experiments/015-human-approval-workflow/evidence.json",
+    "experiments/015-human-approval-workflow/manifest.json",
+    "experiments/015-human-approval-workflow/policy.json",
+    "scripts/verify_approval_workflow.py",
+    "tests/test_approval.py"
+  ],
+  "scope": {
+    "ok": true,
+    "violations": []
+  },
+  "checks": [
+    {
+      "name": "human-approval-workflow-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_approval_workflow.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "0014f21bf7f79bdde5ab2ee4717d6152c28cb498322deb7a9f133c816a0f3eb9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "human-approval-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_approval.py"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "name": "experiment-014-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/014-mcp-scope-adapter/manifest.json",
+        "--output",
+        "experiments/014-mcp-scope-adapter/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0,
+      "timed_out": false,
+      "output_normalization": "crlf-to-lf",
+      "stdout_sha256": "bece5bfec9fde85bfb589ca2217453da3877d0ad5f9068fb15914bd4e33cb205",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "ok": true,
+    "scope_ok": true,
+    "checks": 3,
+    "checks_passed": 3,
+    "checks_failed": 0
+  },
+  "bundle_sha256": "891a3c2eb5eca204f76b54d837deedc12cef93e19c2842cef49551b0d043ecd9"
+}

@@ -1,0 +1,22 @@
+{
+  "allowed_paths": [
+    ".github/workflows/**",
+    "README.md",
+    "agent_scope_guard/**",
+    "docs/**",
+    "examples/**",
+    "experiments/**",
+    "pyproject.toml",
+    "scripts/**",
+    "tests/**"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*",
+    "**/*secret*"
+  ],
+  "required_paths": [
+    "tests/**"
+  ]
+}

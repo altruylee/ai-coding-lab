@@ -1,0 +1,59 @@
+{
+  "task_id": "experiment-015-human-approval-workflow",
+  "policy_path": "experiments/015-human-approval-workflow/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/human-approved-agent.yml",
+    "README.md",
+    "agent_scope_guard/approval.py",
+    "docs/HUMAN_APPROVAL_WORKFLOW.md",
+    "docs/ROADMAP.md",
+    "examples/approval-gate/policy.json",
+    "experiments/015-human-approval-workflow/README.md",
+    "experiments/015-human-approval-workflow/evidence.json",
+    "experiments/015-human-approval-workflow/manifest.json",
+    "experiments/015-human-approval-workflow/policy.json",
+    "scripts/verify_approval_workflow.py",
+    "tests/test_approval.py"
+  ],
+  "checks": [
+    {
+      "name": "human-approval-workflow-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_approval_workflow.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "human-approval-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_approval.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-014-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/014-mcp-scope-adapter/manifest.json",
+        "--output",
+        "experiments/014-mcp-scope-adapter/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

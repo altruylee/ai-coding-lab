@@ -122,6 +122,19 @@ the network, mutate files, or replace human approval. See the
 [MCP adapter guide](docs/MCP_ADAPTER.md) for installation, tool contracts,
 safety boundaries, and protocol limitations.
 
+## Human approval gate
+
+The manual reference workflow validates and freezes an agent proposal before a
+protected GitHub Environment pauses the execution job for a human decision.
+After approval, a fresh job re-resolves the commits, recomputes the diff, and
+rejects any proposal mismatch before running the approved checks.
+
+The workflow is read-only by default, pins official Actions to full commit
+SHAs, does not accept arbitrary commands, and fails unless `agent-approval` has
+required reviewers and a custom deployment branch policy. See the
+[human approval workflow guide](docs/HUMAN_APPROVAL_WORKFLOW.md) for mandatory
+repository settings, operation, threat boundaries, and limitations.
+
 ## Task evidence bundles
 
 Version 0.2.0 can run verification commands declared in a reviewed manifest
@@ -210,6 +223,10 @@ unsafe configurations.
 [Experiment 014 — MCP scope adapter](experiments/014-mcp-scope-adapter/README.md)
 adds two read-only MCP tools and verifies protocol framing, explicit paths,
 local Git diffs, policy violations, and unsafe configuration failures.
+
+[Experiment 015 — Human approval workflow](experiments/015-human-approval-workflow/README.md)
+adds a fail-closed Environment gate, immutable proposal handoff, ref
+revalidation, and least-privilege reference execution.
 
 ## Repository map
 

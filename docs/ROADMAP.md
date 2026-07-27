@@ -42,4 +42,4 @@ framework.
 - [x] GitHub Actions example
 - [x] Pre-commit integration
 - [x] MCP or agent-tool adapter
-- [ ] Reference workflow with explicit human approval gates
+- [x] Reference workflow with explicit human approval gates
