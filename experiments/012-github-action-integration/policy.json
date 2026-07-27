@@ -1,0 +1,28 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "action.yml",
+    "docs/GITHUB_ACTION.md",
+    "docs/ROADMAP.md",
+    "examples/github-actions/**",
+    "experiments/012-github-action-integration/**",
+    "scripts/github_action.py",
+    "scripts/verify_github_action.py",
+    "tests/test_github_action.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ],
+  "required_paths": [
+    "action.yml",
+    "docs/GITHUB_ACTION.md",
+    "examples/github-actions/**",
+    "experiments/012-github-action-integration/**",
+    "scripts/github_action.py",
+    "scripts/verify_github_action.py",
+    "tests/test_github_action.py"
+  ]
+}

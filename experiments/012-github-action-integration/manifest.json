@@ -1,0 +1,44 @@
+{
+  "task_id": "experiment-012-github-action-integration",
+  "policy_path": "experiments/012-github-action-integration/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "action.yml",
+    "docs/GITHUB_ACTION.md",
+    "docs/ROADMAP.md",
+    "examples/github-actions/ci-smoke-policy.json",
+    "examples/github-actions/policy.json",
+    "examples/github-actions/scope-check.yml",
+    "experiments/012-github-action-integration/README.md",
+    "experiments/012-github-action-integration/evidence.json",
+    "experiments/012-github-action-integration/manifest.json",
+    "experiments/012-github-action-integration/policy.json",
+    "scripts/github_action.py",
+    "scripts/verify_github_action.py",
+    "tests/test_github_action.py"
+  ],
+  "checks": [
+    {
+      "name": "github-action-integration-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_github_action.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "github-action-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_github_action.py"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "allowed_paths": [
+    "**"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*"
+  ]
+}
