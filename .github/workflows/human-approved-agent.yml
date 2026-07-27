@@ -1,0 +1,124 @@
+name: Human-approved agent execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: Git revision before the proposed agent change
+        required: true
+        default: HEAD^
+        type: string
+      policy:
+        description: Repository-relative Agent Scope Guard policy
+        required: true
+        default: examples/approval-gate/policy.json
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: human-approved-agent-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-proposal:
+    name: Validate immutable proposal
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the dispatched commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Read approval environment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh api
+          "repos/$GITHUB_REPOSITORY/environments/agent-approval"
+          > "$RUNNER_TEMP/approval-environment.json"
+
+      - name: Require reviewers and a custom branch policy
+        run: >-
+          python -m agent_scope_guard.approval check-environment
+          --input "$RUNNER_TEMP/approval-environment.json"
+          --name agent-approval
+
+      - name: Validate scope and prepare proposal
+        env:
+          AGENT_SCOPE_BASE_REF: ${{ inputs.base_ref }}
+          AGENT_SCOPE_HEAD_REF: ${{ github.sha }}
+          AGENT_SCOPE_POLICY: ${{ inputs.policy }}
+        run: >-
+          python -m agent_scope_guard.approval prepare
+          --repo-root .
+          --policy "$AGENT_SCOPE_POLICY"
+          --base-ref "$AGENT_SCOPE_BASE_REF"
+          --head-ref "$AGENT_SCOPE_HEAD_REF"
+          --output "$RUNNER_TEMP/agent-proposal.json"
+          --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload immutable proposal
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: agent-proposal-${{ github.run_id }}
+          path: ${{ runner.temp }}/agent-proposal.json
+          if-no-files-found: error
+          retention-days: 1
+
+  approved-execution:
+    name: Execute after human approval
+    needs: validate-proposal
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: agent-approval
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the same commit without credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Download this run's proposal
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: agent-proposal-${{ github.run_id }}
+          path: ${{ runner.temp }}/proposal
+
+      - name: Revalidate approved proposal
+        env:
+          AGENT_SCOPE_BASE_REF: ${{ inputs.base_ref }}
+          AGENT_SCOPE_HEAD_REF: ${{ github.sha }}
+          AGENT_SCOPE_POLICY: ${{ inputs.policy }}
+        run: >-
+          python -m agent_scope_guard.approval verify
+          --repo-root .
+          --policy "$AGENT_SCOPE_POLICY"
+          --base-ref "$AGENT_SCOPE_BASE_REF"
+          --head-ref "$AGENT_SCOPE_HEAD_REF"
+          --proposal "$RUNNER_TEMP/proposal/agent-proposal.json"
+
+      - name: Execute the approved reference checks
+        run: |
+          python -m unittest discover -s tests -v
+          python -m compileall -q agent_scope_guard scripts tests

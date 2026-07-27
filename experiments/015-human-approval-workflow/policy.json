@@ -1,0 +1,29 @@
+{
+  "allowed_paths": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/human-approved-agent.yml",
+    "README.md",
+    "agent_scope_guard/approval.py",
+    "docs/HUMAN_APPROVAL_WORKFLOW.md",
+    "docs/ROADMAP.md",
+    "examples/approval-gate/**",
+    "experiments/015-human-approval-workflow/**",
+    "scripts/verify_approval_workflow.py",
+    "tests/test_approval.py"
+  ],
+  "denied_paths": [
+    "**/*.key",
+    "**/*.pem",
+    "**/*credential*",
+    "**/*secret*"
+  ],
+  "required_paths": [
+    ".github/workflows/human-approved-agent.yml",
+    "agent_scope_guard/approval.py",
+    "docs/HUMAN_APPROVAL_WORKFLOW.md",
+    "examples/approval-gate/**",
+    "experiments/015-human-approval-workflow/**",
+    "scripts/verify_approval_workflow.py",
+    "tests/test_approval.py"
+  ]
+}

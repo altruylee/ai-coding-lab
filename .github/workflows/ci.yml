@@ -54,6 +54,9 @@ jobs:
       - name: Exercise MCP stdio adapter
         run: python scripts/verify_mcp_adapter.py
 
+      - name: Exercise human approval workflow
+        run: python scripts/verify_approval_workflow.py
+
       - name: Exercise scope policy
         run: >-
           python -m agent_scope_guard check
@@ -347,5 +350,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/014-mcp-scope-adapter/manifest.json
           --output experiments/014-mcp-scope-adapter/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 015 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/015-human-approval-workflow/manifest.json
+          --output experiments/015-human-approval-workflow/evidence.json
           --repo-root .
           --verify
