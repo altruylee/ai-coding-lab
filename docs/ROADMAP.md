@@ -40,6 +40,6 @@ framework.
 ## Milestone 5 — Integration
 
 - [x] GitHub Actions example
-- [ ] Pre-commit integration
+- [x] Pre-commit integration
 - [ ] MCP or agent-tool adapter
 - [ ] Reference workflow with explicit human approval gates

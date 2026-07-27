@@ -43,6 +43,14 @@ jobs:
           base_ref: HEAD^
           head_ref: HEAD
 
+      - name: Exercise pre-commit entry point
+        run: >-
+          python -m agent_scope_guard.pre_commit
+          --policy examples/pre-commit/ci-smoke-policy.json
+          --format json
+          agent_scope_guard/pre_commit.py
+          tests/test_pre_commit.py
+
       - name: Exercise scope policy
         run: >-
           python -m agent_scope_guard check
@@ -320,5 +328,13 @@ jobs:
           python -m agent_scope_guard evidence
           --manifest experiments/012-github-action-integration/manifest.json
           --output experiments/012-github-action-integration/evidence.json
+          --repo-root .
+          --verify
+
+      - name: Reproduce Experiment 013 evidence
+        run: >-
+          python -m agent_scope_guard evidence
+          --manifest experiments/013-pre-commit-integration/manifest.json
+          --output experiments/013-pre-commit-integration/evidence.json
           --repo-root .
           --verify

@@ -84,6 +84,22 @@ The checkout must include both revisions (`fetch-depth: 0`). See the
 [complete GitHub Action guide](docs/GITHUB_ACTION.md) for the policy, workflow,
 least-privilege permissions, commit-pinning guidance, and limitations.
 
+## pre-commit hook
+
+Catch scope violations before a commit leaves the developer's machine:
+
+```yaml
+repos:
+  - repo: https://github.com/altruylee/ai-coding-lab
+    rev: main
+    hooks:
+      - id: agent-scope-guard
+        args: [--policy, .github/agent-scope-policy.json]
+```
+
+See the [pre-commit integration guide](docs/PRE_COMMIT.md) for installation,
+pinning guidance, staged-file semantics, and known rename/deletion limits.
+
 ## Task evidence bundles
 
 Version 0.2.0 can run verification commands declared in a reviewed manifest
@@ -164,6 +180,10 @@ confound.
 [Experiment 012 — GitHub Action integration](experiments/012-github-action-integration/README.md)
 turns the scope checker into a reusable pull-request guard and validates it
 against allowed and denied synthetic Git histories.
+
+[Experiment 013 — pre-commit integration](experiments/013-pre-commit-integration/README.md)
+adds a packaged staged-path hook and verifies allowed, denied, incomplete, and
+unsafe configurations.
 
 ## Repository map
 

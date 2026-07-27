@@ -1,0 +1,10 @@
+- id: agent-scope-guard
+  name: Agent Scope Guard
+  description: Check staged paths against an AI coding scope policy.
+  entry: agent-scope-guard-pre-commit
+  language: python
+  pass_filenames: true
+  always_run: true
+  require_serial: true
+  stages:
+    - pre-commit

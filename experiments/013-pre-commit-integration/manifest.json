@@ -1,0 +1,62 @@
+{
+  "task_id": "experiment-013-pre-commit-integration",
+  "policy_path": "experiments/013-pre-commit-integration/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    ".pre-commit-hooks.yaml",
+    "README.md",
+    "agent_scope_guard/pre_commit.py",
+    "docs/PRE_COMMIT.md",
+    "docs/ROADMAP.md",
+    "examples/pre-commit/ci-smoke-policy.json",
+    "examples/pre-commit/config.yaml",
+    "examples/pre-commit/policy.json",
+    "experiments/013-pre-commit-integration/README.md",
+    "experiments/013-pre-commit-integration/evidence.json",
+    "experiments/013-pre-commit-integration/manifest.json",
+    "experiments/013-pre-commit-integration/policy.json",
+    "pyproject.toml",
+    "scripts/verify_pre_commit.py",
+    "tests/test_pre_commit.py"
+  ],
+  "checks": [
+    {
+      "name": "pre-commit-integration-scenarios",
+      "command": [
+        "python",
+        "scripts/verify_pre_commit.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "pre-commit-syntax",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "agent_scope_guard",
+        "scripts",
+        "tests/test_pre_commit.py"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "experiment-012-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "agent_scope_guard",
+        "evidence",
+        "--manifest",
+        "experiments/012-github-action-integration/manifest.json",
+        "--output",
+        "experiments/012-github-action-integration/evidence.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}
