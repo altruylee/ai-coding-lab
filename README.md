@@ -135,6 +135,10 @@ required reviewers and a custom deployment branch policy. See the
 [human approval workflow guide](docs/HUMAN_APPROVAL_WORKFLOW.md) for mandatory
 repository settings, operation, threat boundaries, and limitations.
 
+For a start-to-finish walkthrough covering local checks, pull-request
+enforcement, and the approval gate, read the
+[practical usage guide](docs/USAGE.md).
+
 ## Task evidence bundles
 
 Version 0.2.0 can run verification commands declared in a reviewed manifest
@@ -269,6 +273,9 @@ in [threats to validity](docs/THREATS_TO_VALIDITY.md).
 这是一个研究 **AI Coding 可靠性** 的公开实验室。首个工具 Agent Scope
 Guard 用来检查 Coding Agent 是否越过任务声明的文件边界。仓库只使用公开
 或虚构案例，不包含任何公司内部代码、数据或业务规则。
+
+实际安装、范围检查、PR 集成和人工审批操作见
+[中文快速使用](docs/USAGE.md#中文快速使用)。
 
 ## Contributing
 
