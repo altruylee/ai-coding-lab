@@ -1,0 +1,131 @@
+{
+  "task_id": "experiment-010-first-multitask-blind-campaign",
+  "policy_path": "experiments/010-first-multitask-blind-campaign/policy.json",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "README.md",
+    "benchmark_runs/README.md",
+    "benchmark_runs/agents/006-codex-public-tests-001/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-public-tests-001/PROMPT.md",
+    "benchmark_runs/agents/006-codex-public-tests-001/attempt.json",
+    "benchmark_runs/agents/006-codex-public-tests-001/candidate/archive_paths.py",
+    "benchmark_runs/agents/006-codex-spec-only-001/ATTESTATION.md",
+    "benchmark_runs/agents/006-codex-spec-only-001/PROMPT.md",
+    "benchmark_runs/agents/006-codex-spec-only-001/attempt.json",
+    "benchmark_runs/agents/006-codex-spec-only-001/candidate/archive_paths.py",
+    "benchmark_runs/agents/009-codex-public-tests-001/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-public-tests-001/PROMPT.md",
+    "benchmark_runs/agents/009-codex-public-tests-001/attempt.json",
+    "benchmark_runs/agents/009-codex-public-tests-001/candidate/context_window.py",
+    "benchmark_runs/agents/009-codex-spec-only-001/ATTESTATION.md",
+    "benchmark_runs/agents/009-codex-spec-only-001/PROMPT.md",
+    "benchmark_runs/agents/009-codex-spec-only-001/attempt.json",
+    "benchmark_runs/agents/009-codex-spec-only-001/candidate/context_window.py",
+    "benchmark_runs/agents/010-codex-public-tests-001/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-public-tests-001/PROMPT.md",
+    "benchmark_runs/agents/010-codex-public-tests-001/attempt.json",
+    "benchmark_runs/agents/010-codex-public-tests-001/candidate/text_edits.py",
+    "benchmark_runs/agents/010-codex-spec-only-001/ATTESTATION.md",
+    "benchmark_runs/agents/010-codex-spec-only-001/PROMPT.md",
+    "benchmark_runs/agents/010-codex-spec-only-001/attempt.json",
+    "benchmark_runs/agents/010-codex-spec-only-001/candidate/text_edits.py",
+    "benchmark_runs/campaigns/task006-prompt-context-001/campaign.json",
+    "benchmark_runs/campaigns/task009-prompt-context-001/campaign.json",
+    "benchmark_runs/campaigns/task010-prompt-context-001/campaign.json",
+    "benchmark_runs/suites/first-multitask-prompt-context-001/suite.json",
+    "benchmarks/README.md",
+    "benchmarks/suites.py",
+    "docs/ROADMAP.md",
+    "experiments/010-first-multitask-blind-campaign/README.md",
+    "experiments/010-first-multitask-blind-campaign/evidence.json",
+    "experiments/010-first-multitask-blind-campaign/manifest.json",
+    "experiments/010-first-multitask-blind-campaign/policy.json",
+    "experiments/010-first-multitask-blind-campaign/results-task006.json",
+    "experiments/010-first-multitask-blind-campaign/results-task009.json",
+    "experiments/010-first-multitask-blind-campaign/results-task010.json",
+    "experiments/010-first-multitask-blind-campaign/results.json",
+    "tests/test_suite_runner.py"
+  ],
+  "checks": [
+    {
+      "name": "task-006-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task006-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results-task006.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-009-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task009-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results-task009.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-010-campaign",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task010-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results-task010.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "multi-task-suite",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.suites",
+        "--suite",
+        "benchmark_runs/suites/first-multitask-prompt-context-001/suite.json",
+        "--output",
+        "experiments/010-first-multitask-blind-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "task-002-campaign-compatibility",
+      "command": [
+        "python",
+        "-m",
+        "benchmarks.campaigns",
+        "--campaign",
+        "benchmark_runs/campaigns/task002-prompt-context-001/campaign.json",
+        "--output",
+        "experiments/007-prompt-context-campaign/results.json",
+        "--repo-root",
+        ".",
+        "--verify"
+      ],
+      "timeout_seconds": 60
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "suite_id": "first-multitask-prompt-context-001",
+  "suite_manifest": {
+    "path": "benchmark_runs/suites/first-multitask-prompt-context-001/suite.json",
+    "sha256": "86eedd291553ee1065469d0699e1578e8fe25fa03527dfcd3edae60d1ef77c3a"
+  },
+  "campaigns": [
+    {
+      "id": "task006",
+      "campaign_id": "task006-prompt-context-001",
+      "campaign_manifest": {
+        "path": "benchmark_runs/campaigns/task006-prompt-context-001/campaign.json",
+        "sha256": "60029a9d14592e4dd785916599fc1761554d3dba5206d7c45bb15acdcd5a49c2"
+      },
+      "task": {
+        "path": "benchmarks/tasks/006-safe-archive-members",
+        "sha256": "3e65461542372398398e2e8b793a1b52c71d6c76fbc04f9b1fb68fc0652c549c"
+      },
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            151368,
+            179320
+          ],
+          "median": 165344.0,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "task009",
+      "campaign_id": "task009-prompt-context-001",
+      "campaign_manifest": {
+        "path": "benchmark_runs/campaigns/task009-prompt-context-001/campaign.json",
+        "sha256": "ef62ccfa6acaca8f812b570ff0f76c68f9c2713c6efbacefe933bc2e8e2e5338"
+      },
+      "task": {
+        "path": "benchmarks/tasks/009-context-window-selection",
+        "sha256": "666482b45f31e15d78316fa542a20740426827bf827546ed96e3724291cd32f1"
+      },
+      "summary": {
+        "attempts": 2,
+        "solved": 1,
+        "scoreboard_eligible": 1,
+        "elapsed_ms": {
+          "values": [
+            182647,
+            179320
+          ],
+          "median": 180983.5,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "task010",
+      "campaign_id": "task010-prompt-context-001",
+      "campaign_manifest": {
+        "path": "benchmark_runs/campaigns/task010-prompt-context-001/campaign.json",
+        "sha256": "8af567b130f58cf1fa7e2ab990c3d26a7739ab78196c91f4bb3c84519254adf0"
+      },
+      "task": {
+        "path": "benchmarks/tasks/010-non-overlapping-text-edits",
+        "sha256": "32ab1d1da9801b783a8e2195ffa6eedc80938bd35a7d1268ee603eb82e447d73"
+      },
+      "summary": {
+        "attempts": 2,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            196614,
+            205559
+          ],
+          "median": 201086.5,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "campaign": "task006",
+      "task": "benchmarks/tasks/006-safe-archive-members",
+      "attempt_id": "006-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "8ed1f889968b1740c60887d82d781877bff5d040612f326e8ec89f09f2f32a0e",
+      "candidate_sha256": "dc91f648306457f657f906d1d32922d2e8c4bdc60a968c2b32a26f42a39e2e32",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 151368,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "campaign": "task006",
+      "task": "benchmarks/tasks/006-safe-archive-members",
+      "attempt_id": "006-codex-public-tests-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "2ed7700bee10f821453c9934794ad1886dfd705343d51488eefa5bf3fd00fb04",
+      "candidate_sha256": "7a2a6640a26ec899d04813a358ffda83e777bca348247bb27c9b469c9ff52296",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 179320,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "campaign": "task009",
+      "task": "benchmarks/tasks/009-context-window-selection",
+      "attempt_id": "009-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "db3edc4aa0368207c46b55e515b807c781b20a3857f072adfd5c8ebf6777c5f4",
+      "candidate_sha256": "7c5479827c6cf0d9040d53e523bdaae5393c15bd1409cf72ba900414b0ec4c19",
+      "solved": false,
+      "scoreboard_eligible": false,
+      "elapsed_ms": 182647,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "campaign": "task009",
+      "task": "benchmarks/tasks/009-context-window-selection",
+      "attempt_id": "009-codex-public-tests-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "60a8ba8cd2bea8ba5cdada8f77461de84c0481483a7abc6ff651681a43677f01",
+      "candidate_sha256": "0d8f979cec9c97db85e9434deaab191d1c4811f74ba5e2a0438ad73f96f9f823",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 179320,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "campaign": "task010",
+      "task": "benchmarks/tasks/010-non-overlapping-text-edits",
+      "attempt_id": "010-codex-spec-only-001",
+      "configuration": "spec-only",
+      "attempt_manifest_sha256": "ed019a259fd55dbbe574dcf5872350d12ff806d074054afe302af6c42f915a4e",
+      "candidate_sha256": "dcd26852ebc034118976c56d029f6a4d77e34d01b3596a4b2529c56e3ad9146f",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 196614,
+      "human_interventions": 0,
+      "usage_complete": false
+    },
+    {
+      "campaign": "task010",
+      "task": "benchmarks/tasks/010-non-overlapping-text-edits",
+      "attempt_id": "010-codex-public-tests-001",
+      "configuration": "public-test-descriptions",
+      "attempt_manifest_sha256": "7d426b175bde469ff2a158d5e6ef698384238d03ec8309af256e8b7db24b1015",
+      "candidate_sha256": "77f78538ea00e80c80c6d0febbb460b55d3f1f3333bfca764b76f94f6d67d98d",
+      "solved": true,
+      "scoreboard_eligible": true,
+      "elapsed_ms": 205559,
+      "human_interventions": 0,
+      "usage_complete": false
+    }
+  ],
+  "configurations": [
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions",
+      "summary": {
+        "attempts": 3,
+        "solved": 2,
+        "scoreboard_eligible": 2,
+        "elapsed_ms": {
+          "values": [
+            151368,
+            182647,
+            196614
+          ],
+          "median": 182647,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    },
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests",
+      "summary": {
+        "attempts": 3,
+        "solved": 3,
+        "scoreboard_eligible": 3,
+        "elapsed_ms": {
+          "values": [
+            179320,
+            179320,
+            205559
+          ],
+          "median": 179320,
+          "missing": 0
+        },
+        "human_interventions": 0,
+        "usage_complete": 0
+      }
+    }
+  ],
+  "summary": {
+    "attempts": 6,
+    "solved": 5,
+    "scoreboard_eligible": 5,
+    "elapsed_ms": {
+      "values": [
+        151368,
+        179320,
+        182647,
+        179320,
+        196614,
+        205559
+      ],
+      "median": 180983.5,
+      "missing": 0
+    },
+    "human_interventions": 0,
+    "usage_complete": 0
+  }
+}

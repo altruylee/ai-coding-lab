@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "campaign_id": "task009-prompt-context-001",
+  "task": "benchmarks/tasks/009-context-window-selection",
+  "configurations": [
+    {
+      "id": "spec-only",
+      "description": "Task requirements only, without test descriptions"
+    },
+    {
+      "id": "public-test-descriptions",
+      "description": "Task requirements plus descriptions of the public tests"
+    }
+  ],
+  "attempts": [
+    {
+      "configuration": "spec-only",
+      "attempt": "benchmark_runs/agents/009-codex-spec-only-001/attempt.json"
+    },
+    {
+      "configuration": "public-test-descriptions",
+      "attempt": "benchmark_runs/agents/009-codex-public-tests-001/attempt.json"
+    }
+  ]
+}

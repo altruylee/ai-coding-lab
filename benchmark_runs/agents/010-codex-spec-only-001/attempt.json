@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "attempt_id": "010-codex-spec-only-001",
+  "task": "benchmarks/tasks/010-non-overlapping-text-edits",
+  "candidate_dir": "candidate",
+  "provenance": {
+    "kind": "agent",
+    "agent_name": "OpenAI Codex",
+    "agent_version": null,
+    "model": "GPT-5 family (exact deployment not exposed)",
+    "reference_access": false
+  },
+  "execution": {
+    "permissions": [
+      "read-supplied-prompt",
+      "return-candidate-text"
+    ],
+    "network_access": "disabled",
+    "elapsed_ms": 196614,
+    "human_interventions": 0
+  },
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "artifacts": [
+    {
+      "name": "prompt",
+      "path": "PROMPT.md"
+    },
+    {
+      "name": "attestation",
+      "path": "ATTESTATION.md"
+    }
+  ]
+}
